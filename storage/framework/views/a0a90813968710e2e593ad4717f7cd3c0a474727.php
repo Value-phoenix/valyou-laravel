@@ -1,15 +1,15 @@
-@section('pageCSS')
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/pages/projects-list.css?v0.2') }}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/pages/microtip.css') }}">
-@endsection
+<?php $__env->startSection('pageCSS'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/css/pages/projects-list.css?v0.2')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/css/pages/microtip.css')); ?>">
+<?php $__env->stopSection(); ?>
 
 
 
-@extends('layouts.master')
 
-@section('title') Market @endsection
 
-@section('content')
+<?php $__env->startSection('title'); ?> Market <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
 <style>
     .pagination-loadmore {
         padding: 12px !important;
@@ -200,7 +200,7 @@
         }
     }
 
-    @media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 820px) {
+    @media  only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 820px) {
         .table-responsive-m {
             display: block !important;
         }
@@ -243,7 +243,7 @@
 
   
 
-    @media screen and (max-width: 650px) {
+    @media  screen and (max-width: 650px) {
         .project-list-table {
             /* border-spacing: 1px !important; */
         }
@@ -269,7 +269,7 @@
         }
     }
 
-    @media screen and (max-width: 650px) and (min-width: 481px) {
+    @media  screen and (max-width: 650px) and (min-width: 481px) {
         .stock-price {
             float: left;
             font-size: 16px !important;
@@ -281,7 +281,7 @@
         }
     }
 
-    @media screen and (max-width: 820px) and (min-width: 649px) {
+    @media  screen and (max-width: 820px) and (min-width: 649px) {
         * {
             /* background:green */
         }
@@ -441,7 +441,7 @@
     
 </style>
 <!-- CURL -->
-@php
+<?php
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -497,28 +497,28 @@ $response = curl_exec($curl);
 
 curl_close($curl);
 $ETHUSDT = json_decode($response)->price;
-@endphp
+?>
 
 <div class="scrolling-wrapper">
     <div class="scrolling"> EXCHANGE RATES
         <span class="pink">:</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg') }}" width="15" height="15"
+        <img src="<?php echo e(asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg')); ?>" width="15" height="15"
             alt="">&nbsp;&nbsp;1 ETHEREUM (ETH) &nbsp;=&nbsp;
         <p>0.02776 BTC</p> &nbsp;=&nbsp; $
-        <p>{{ $ETHUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($ETHUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-green"> + 0.25% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/bitcoinlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
+        <img src="<?php echo e(asset('assets/images/valyoux/bitcoinlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
         (BTC) &nbsp;=&nbsp; $
-        <p>{{ $BTCUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($BTCUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.15% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
         (VXD) = &nbsp;&nbsp; $
-        <p>{{ $USDCUSDT ?? '' }} USDC</p> &nbsp;&nbsp;
+        <p><?php echo e($USDCUSDT ?? ''); ?> USDC</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.1% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
         (VALYOU X) = &nbsp;&nbsp;
         <p>$0.50 USDC</p> &nbsp;&nbsp;
         <p class="text-green"> +2.5% </p>
@@ -527,23 +527,23 @@ $ETHUSDT = json_decode($response)->price;
         EXCHANGE RATES
         <span class="pink">:</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg') }}" width="15" height="15"
+        <img src="<?php echo e(asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg')); ?>" width="15" height="15"
             alt="">&nbsp;&nbsp;1 ETHEREUM (ETH) &nbsp;=&nbsp;
         <p>0.02776 BTC</p> &nbsp;=&nbsp; $
-        <p>{{ $ETHUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($ETHUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-green"> + 0.25% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/bitcoinlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
+        <img src="<?php echo e(asset('assets/images/valyoux/bitcoinlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
         (BTC) &nbsp;=&nbsp; $
-        <p>{{ $BTCUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($BTCUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.15% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
         (VXD) = &nbsp;&nbsp; $
-        <p>{{ $USDCUSDT ?? '' }} USDC</p> &nbsp;&nbsp;
+        <p><?php echo e($USDCUSDT ?? ''); ?> USDC</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.1% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
         (VALYOU X) = &nbsp;&nbsp;
         <p>$0.50 USDC</p> &nbsp;&nbsp;
         <p class="text-green"> +2.5% </p>
@@ -552,23 +552,23 @@ $ETHUSDT = json_decode($response)->price;
         EXCHANGE RATES
         <span class="pink">:</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg') }}" width="15" height="15"
+        <img src="<?php echo e(asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg')); ?>" width="15" height="15"
             alt="">&nbsp;&nbsp;1 ETHEREUM (ETH) &nbsp;=&nbsp;
         <p>0.02776 BTC</p> &nbsp;=&nbsp; $
-        <p>{{ $ETHUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($ETHUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-green"> + 0.25% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/bitcoinlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
+        <img src="<?php echo e(asset('assets/images/valyoux/bitcoinlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
         (BTC) &nbsp;=&nbsp; $
-        <p>{{ $BTCUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($BTCUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.15% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
         (VXD) = &nbsp;&nbsp; $
-        <p>{{ $USDCUSDT ?? '' }} USDC</p> &nbsp;&nbsp;
+        <p><?php echo e($USDCUSDT ?? ''); ?> USDC</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.1% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
         (VALYOU X) = &nbsp;&nbsp;
         <p>$0.50 USDC</p> &nbsp;&nbsp;
         <p class="text-green"> +2.5% </p>
@@ -577,23 +577,23 @@ $ETHUSDT = json_decode($response)->price;
         EXCHANGE RATES
         <span class="pink">:</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg') }}" width="15" height="15"
+        <img src="<?php echo e(asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg')); ?>" width="15" height="15"
             alt="">&nbsp;&nbsp;1 ETHEREUM (ETH) &nbsp;=&nbsp;
         <p>0.02776 BTC</p> &nbsp;=&nbsp; $
-        <p>{{ $ETHUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($ETHUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-green"> + 0.25% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/bitcoinlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
+        <img src="<?php echo e(asset('assets/images/valyoux/bitcoinlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
         (BTC) &nbsp;=&nbsp; $
-        <p>{{ $BTCUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($BTCUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.15% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
         (VXD) = &nbsp;&nbsp; $
-        <p>{{ $USDCUSDT ?? '' }} USDC</p> &nbsp;&nbsp;
+        <p><?php echo e($USDCUSDT ?? ''); ?> USDC</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.1% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
         (VALYOU X) = &nbsp;&nbsp;
         <p>$0.50 USDC</p> &nbsp;&nbsp;
         <p class="text-green"> +2.5% </p>
@@ -602,23 +602,23 @@ $ETHUSDT = json_decode($response)->price;
         EXCHANGE RATES
         <span class="pink">:</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg') }}" width="15" height="15"
+        <img src="<?php echo e(asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg')); ?>" width="15" height="15"
             alt="">&nbsp;&nbsp;1 ETHEREUM (ETH) &nbsp;=&nbsp;
         <p>0.02776 BTC</p> &nbsp;=&nbsp; $
-        <p>{{ $ETHUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($ETHUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-green"> + 0.25% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/bitcoinlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
+        <img src="<?php echo e(asset('assets/images/valyoux/bitcoinlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
         (BTC) &nbsp;=&nbsp; $
-        <p>{{ $BTCUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($BTCUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.15% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
         (VXD) = &nbsp;&nbsp; $
-        <p>{{ $USDCUSDT ?? '' }} USDC</p> &nbsp;&nbsp;
+        <p><?php echo e($USDCUSDT ?? ''); ?> USDC</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.1% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
         (VALYOU X) = &nbsp;&nbsp;
         <p>$0.50 USDC</p> &nbsp;&nbsp;
         <p class="text-green"> +2.5% </p>
@@ -627,23 +627,23 @@ $ETHUSDT = json_decode($response)->price;
         EXCHANGE RATES
         <span class="pink">:</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg') }}" width="15" height="15"
+        <img src="<?php echo e(asset('assets/images/valyoux/ethereum_logo_valyou_x_music.svg')); ?>" width="15" height="15"
             alt="">&nbsp;&nbsp;1 ETHEREUM (ETH) &nbsp;=&nbsp;
         <p>0.02776 BTC</p> &nbsp;=&nbsp; $
-        <p>{{ $ETHUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($ETHUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-green"> + 0.25% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/bitcoinlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
+        <img src="<?php echo e(asset('assets/images/valyoux/bitcoinlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 BITCOIN
         (BTC) &nbsp;=&nbsp; $
-        <p>{{ $BTCUSDT ?? '' }} USD</p> &nbsp;&nbsp;
+        <p><?php echo e($BTCUSDT ?? ''); ?> USD</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.15% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 Valyou X Dollar
         (VXD) = &nbsp;&nbsp; $
-        <p>{{ $USDCUSDT ?? '' }} USDC</p> &nbsp;&nbsp;
+        <p><?php echo e($USDCUSDT ?? ''); ?> USDC</p> &nbsp;&nbsp;
         <p class="text-red"> - 0.1% </p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('assets/images/valyoux/vuxlogo.svg') }}" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
+        <img src="<?php echo e(asset('assets/images/valyoux/vuxlogo.svg')); ?>" width="15" height="15">&nbsp;&nbsp;1 VALYOU X MUSIC
         (VALYOU X) = &nbsp;&nbsp;
         <p>$0.50 USDC</p> &nbsp;&nbsp;
         <p class="text-green"> +2.5% </p>
@@ -962,13 +962,13 @@ $ETHUSDT = json_decode($response)->price;
 <div class="row">
 </div>
 <!-- end row -->
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('script')
+<?php $__env->startSection('script'); ?>
 <script type="text/javascript"
     src="https://rawgit.com/padolsey/jQuery-Plugins/master/sortElements/jquery.sortElements.js"></script>
-<script src="{{ URL::asset('assets/js/pages/projects-list.js') }}"></script>
+<script src="<?php echo e(URL::asset('assets/js/pages/projects-list.js')); ?>"></script>
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -1103,4 +1103,5 @@ $ETHUSDT = json_decode($response)->price;
 
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\@hbs@\git repository\valyou-laravel\resources\views/market.blade.php ENDPATH**/ ?>

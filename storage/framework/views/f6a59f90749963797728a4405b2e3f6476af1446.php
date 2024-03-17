@@ -1,14 +1,13 @@
-@extends('layouts.master')
-@section('pageCSS')
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css') }}">
-<!-- <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css') }}"> -->
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/tagify/tagify.css') }}">
+<?php $__env->startSection('pageCSS'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/libs/select2/select2.min.css')); ?>">
+<!-- <link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')); ?>"> -->
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/libs/tagify/tagify.css')); ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/pages/social-media.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/intl-tel-input/css/intlTelInput.css') }}">
-@endsection
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/css/pages/social-media.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/libs/intl-tel-input/css/intlTelInput.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('css')
+<?php $__env->startSection('css'); ?>
 <style>
 	/* desktop-start */
 	.nav-part {
@@ -111,7 +110,7 @@
 
 	/* all video list end */
 
-	@media only screen and (max-width: 900px) {
+	@media  only screen and (max-width: 900px) {
 
 		/* #page-topbar {
 			position: relative;
@@ -440,12 +439,12 @@
 	}
 </style>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('content')
-<input type="hidden" name="user_wallet_amount" value="{{ auth()->user()->wallet }}" id="user_wallet_amount">
-<input type="hidden" name="user_role" value="{{ check_role() }}" id="user_role">
+<?php $__env->startSection('content'); ?>
+<input type="hidden" name="user_wallet_amount" value="<?php echo e(auth()->user()->wallet); ?>" id="user_wallet_amount">
+<input type="hidden" name="user_role" value="<?php echo e(check_role()); ?>" id="user_role">
 <input type="hidden" name="media_id" id="media_id" value="0">
 <input type="hidden" name="own_user_id" id="own_user_id" value="0" />
 <div class="w-full overflow-auto background-shadow  mb-3 header-menu" style="width: 98.8%; margin-left: .7%">
@@ -483,22 +482,22 @@
 						<video class="my-video" id="see_video" width="100%" controlsList="nodownload" src=""
 							type="video/mp4" controls></video>
 						<div class="w-full overlay d-flex overlay-for-video">
-							<img src="{{URL::asset('assets/images/play-button.svg')}}" class="m-auto play-btn" alt="">
+							<img src="<?php echo e(URL::asset('assets/images/play-button.svg')); ?>" class="m-auto play-btn" alt="">
 						</div>
 					</div>
-					{{-- inner button part --}}
+					
 					<div class="inner-button-part w-full">
 						<div class="watch-btn-group m-2">
 							<div class="d-flex ">
 								<div class="left-btn-group desktop-mode">
 
 									<div class="main-border-btn py-2 px-2 m-2 h-fit d-flex dt-comment-btn ">
-										<span><img class="btn-ico" src="{{URL::asset('assets/images/comments.svg')}}"
+										<span><img class="btn-ico" src="<?php echo e(URL::asset('assets/images/comments.svg')); ?>"
 												alt=""></span>
 										<p class="text-center m-0 p-0-5 hand font-weight-bold fs-1-1">COMMENTS </p>
 									</div>
 									<div class="main-border-btn py-2 px-2 m-2 h-fit d-flex dt-promote-btn">
-										<span><img class="btn-ico" src="{{URL::asset('assets/images/promote.svg')}}"
+										<span><img class="btn-ico" src="<?php echo e(URL::asset('assets/images/promote.svg')); ?>"
 												alt=""></span>
 										<p class="text-center m-0 p-0-5 hand font-weight-bold fs-1-1">PROMOTE</p>
 									</div>
@@ -508,7 +507,7 @@
 										<p class="m-0 text-center p-0-5 hand font-weight-bold  fs-1-1">VALYOU SONG</p>
 									</div>
 									<div class="bg-green-gra watch-invest-btn m-2 h-fit">
-										<a href="{{URL::to('artist/stock-price',$artists[0]->id)}}"
+										<a href="<?php echo e(URL::to('artist/stock-price',$artists[0]->id)); ?>"
 											class=" py-2 px-3 d-flex">
 											<p class="text-center m-0 p-0-5 hand font-weight-bold text-white fs-1-1">
 												INVEST IN</p>
@@ -517,12 +516,12 @@
 								</div>
 								<div class="mobile-mode d-flex justify-content-between w-full">
 									<div class="p-2 h-fit d-flex mo-comment-btn" data-commentid="111">
-										<span><img class="btn-ico" src="{{URL::asset('assets/images/comments.svg')}}"
+										<span><img class="btn-ico" src="<?php echo e(URL::asset('assets/images/comments.svg')); ?>"
 												alt=""></span>
 										<p class="text-center m-0 ml-1 pt-1  fs-1-1">COMMENTS </p>
 									</div>
 									<div class="p-2 h-fit d-flex mo-promote-btn" data-promoteid="111">
-										<span><img class="btn-ico" src="{{URL::asset('assets/images/promote.svg')}}"
+										<span><img class="btn-ico" src="<?php echo e(URL::asset('assets/images/promote.svg')); ?>"
 												alt=""></span>
 										<p class="text-center m-0 ml-1 pt-1  fs-1-1">PROMOTE</p>
 									</div>
@@ -536,11 +535,11 @@
 
 					</div>
 				</div>
-				@include('partician.video_feature_modal',[])
+				<?php echo $__env->make('partician.video_feature_modal',[], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-4  ">
 				<div style="z-index:3">
-					@include('partician.video_feature_section',[])
+					<?php echo $__env->make('partician.video_feature_section',[], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 				</div>
 				<div id="video-list-des" style="height: 100%">
 					<div class="all-video-list card  p-2 desktop-mode" style="height:100%;">
@@ -549,35 +548,34 @@
 						</div>
 						<!-- <hr class="m-0 mb-2"> -->
 						<div class="special-video-part " style="height: 100vh; overflow-x: hidden;">
-							{{-- start video list --}}
-							@foreach($videos as $key=>$row)
+							
+							<?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<div class="especailly-part inline-flex w-full background-shadow px-2 my-2 pt-2 pb-2"
-								onclick="selVideoDetail({{$row->id}}, 1)" style="width: 98.8%; margin:.7%; width: 100%">
+								onclick="selVideoDetail(<?php echo e($row->id); ?>, 1)" style="width: 98.8%; margin:.7%; width: 100%">
 								<div class="video-detail-image">
-									@if($row->audio_cover_image)
+									<?php if($row->audio_cover_image): ?>
 									<img class="my-video" width="180" height="110"
-										src="{{ asset($row->audio_cover_image) }}">
-									@else
+										src="<?php echo e(asset($row->audio_cover_image)); ?>">
+									<?php else: ?>
 									<video class="my-video" controlsList="nodownload" width="180" height="110"
-										src="{{ asset($row->name) }}" type="video/mp4"></video>
-									@endif
+										src="<?php echo e(asset($row->name)); ?>" type="video/mp4"></video>
+									<?php endif; ?>
 								</div>
 								<div class="video-detail-info py-1 pl-2">
-									<p class="fs-2 font-weight-bold" style="font-size: 16px; margin:auto;">{{@$row->singer}} - {{@$row->audio_title}}</p>
-									<p class="fs-1 font-weight-bold" style="font-size: 12px !important;margin:auto;">{{@$row->artist->about}}</p>
+									<p class="fs-2 font-weight-bold" style="font-size: 16px; margin:auto;"><?php echo e(@$row->singer); ?> - <?php echo e(@$row->audio_title); ?></p>
+									<p class="fs-1 font-weight-bold" style="font-size: 12px !important;margin:auto;"><?php echo e(@$row->artist->about); ?></p>
 									<p style="font-size: small; font-weight: 200;" style="font-size:14px !important; margin:auto">Song Valyou: <strong
-											id="valyou-val">${{
-											numberformat(@$row->artist->stock_value) }}</strong></p>
-									<h6 class={{$row->artist->change_stock<0?'txt-main': 'text-green' }}  style="font-size:12px; color:red !important;">
+											id="valyou-val">$<?php echo e(numberformat(@$row->artist->stock_value)); ?></strong></p>
+									<h6 class=<?php echo e($row->artist->change_stock<0?'txt-main': 'text-green'); ?>  style="font-size:12px; color:red !important;">
 									<small style="font-size:12px; color:red !important;">Stock Price
 												&nbsp;<span><img class="" width="15" height="15" style="font-size:12px; color:red !important; color: red;
-													"	src="{{$row->artist->change_stock<0?'https://testvps.nwlogics.com/public/assets/images/valyoux/green_arrow_price_going_up.svg': 'https://testvps.nwlogics.com/public/assets/images/valyoux/pink_arrow_circle_down.svg'}}"></span>&nbsp;&nbsp;<strong style="font-size:12px; color:red !important;">${{$row->artist->stock_value}}VXD</strong>&nbsp;<strong>{{$row->artist->change_stock
-													<0?'': '+' }}{{$row->artist->change_stock}}%
+													"	src="<?php echo e($row->artist->change_stock<0?'https://testvps.nwlogics.com/public/assets/images/valyoux/green_arrow_price_going_up.svg': 'https://testvps.nwlogics.com/public/assets/images/valyoux/pink_arrow_circle_down.svg'); ?>"></span>&nbsp;&nbsp;<strong style="font-size:12px; color:red !important;">$<?php echo e($row->artist->stock_value); ?>VXD</strong>&nbsp;<strong><?php echo e($row->artist->change_stock
+													<0?'': '+'); ?><?php echo e($row->artist->change_stock); ?>%
 												</strong></small></h6>
 								</div>
 							</div>
-							@endforeach
-							{{-- end video list --}}
+							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							
 						</div>
 					</div>
 				</div>
@@ -588,15 +586,15 @@
 		<div class="w-full background-shadow mr-0 mt-4 mb-4" style="margin-left: 0.7%; width: 99.3%;">
 			<div class="mo-userinfo px-1">
 				<div class="personal-img">
-					<img src="{{ URL::asset($videos[0]->artist->photo?$videos[0]->artist->photo:'') }}"
+					<img src="<?php echo e(URL::asset($videos[0]->artist->photo?$videos[0]->artist->photo:'')); ?>"
 						style="width: 48px; height: 48px;" alt="">
 				</div>
 				<div class="mo-userinfo-content">
-					<h4 class="my-auto mx-2">{{ isset($videos[0]->artist->brand) ? $videos[0]->artist->brand : '' }}
+					<h4 class="my-auto mx-2"><?php echo e(isset($videos[0]->artist->brand) ? $videos[0]->artist->brand : ''); ?>
+
 					</h4>
 					<div class="personel-detail-stock-content">
-						<p class="my-auto txt-main"><b>Stock Price : ${{ numberformat(@$videos[0]->artist->stock_value)
-								}} VXD</b> <img class="" width="15" height="15"
+						<p class="my-auto txt-main"><b>Stock Price : $<?php echo e(numberformat(@$videos[0]->artist->stock_value)); ?> VXD</b> <img class="" width="15" height="15"
 								src="https://testvps.nwlogics.com/public/assets/images/valyoux/pink_arrow_circle_down.svg">
 							<b> &nbsp; - &nbsp; 10.77777%</b>
 						</p>
@@ -622,7 +620,7 @@
 			</div>
 			<div>
 				<div class="row w-full mx-0 my-2">
-					@include('partician.brand_sponsor_list',['list'=>$artists])
+					<?php echo $__env->make('partician.brand_sponsor_list',['list'=>$artists], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 				</div>
 				<div class="all-video-list card  p-2 mobile-mode">
 					<div class="p-3">
@@ -630,37 +628,36 @@
 					</div>
 					<hr class="m-0 mb-2">
 					<div class="special-video-part ">
-						{{-- start video list --}}
-						@foreach($videos as $key=>$row)
+						
+						<?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 						<div class="especailly-part inline-flex w-full background-shadow px-2 my-2 "
-							onclick="selVideoDetail({{$row->id}}, 1)">
+							onclick="selVideoDetail(<?php echo e($row->id); ?>, 1)">
 							<div class="video-detail-image" width="150" height="100">
-								@if($row->audio_cover_image)
-								<img class="my-video" width="100%" src="{{ asset($row->audio_cover_image) }}">
-								@else
+								<?php if($row->audio_cover_image): ?>
+								<img class="my-video" width="100%" src="<?php echo e(asset($row->audio_cover_image)); ?>">
+								<?php else: ?>
 								<video class="my-video see_video" controlsList="nodownload" width="100%"
-									src="{{ asset($row->name) }}" type="video/mp4"></video>
-								@endif
+									src="<?php echo e(asset($row->name)); ?>" type="video/mp4"></video>
+								<?php endif; ?>
 							</div>
 							<div class="video-detail-info p-0" style="padding: 0;">
-								<p style="font-size: 13px">{{@$row->singer}} - {{@$row->audio_title}}</p>
-								<p style="font-size: 12px;">{{@$row->artist->about}}</p>
-								<p style="font-size: 8px; font-weight: 200;">Song Valyou: <strong id="valyou-val">${{
-										numberformat(@$row->artist->stock_value) }}</strong></p>
-								<h6 class={{$row->artist->change_stock<0?'txt-main': 'text-green' }}><small style="color: #FF0093; font-size: 10px;">Stock Price
+								<p style="font-size: 13px"><?php echo e(@$row->singer); ?> - <?php echo e(@$row->audio_title); ?></p>
+								<p style="font-size: 12px;"><?php echo e(@$row->artist->about); ?></p>
+								<p style="font-size: 8px; font-weight: 200;">Song Valyou: <strong id="valyou-val">$<?php echo e(numberformat(@$row->artist->stock_value)); ?></strong></p>
+								<h6 class=<?php echo e($row->artist->change_stock<0?'txt-main': 'text-green'); ?>><small style="color: #FF0093; font-size: 10px;">Stock Price
 											&nbsp;<span style="color: #FF0093; font-size: 10px;"><img class="" width="15" height="15"
-													src="{{$row->artist->change_stock<0?'https://testvps.nwlogics.com/public/assets/images/valyoux/green_arrow_price_going_up.svg': 'https://testvps.nwlogics.com/public/assets/images/valyoux/pink_arrow_circle_down.svg'}}"></span>&nbsp;&nbsp;<strong style="color: #ff0093; font-size: 10px;">${{$row->artist->stock_value}}VXD</strong>&nbsp;<strong style="color: #FF0093; font-size: 10px;">{{$row->artist->change_stock
-												<0?'': '+' }}{{$row->artist->change_stock}}%
+													src="<?php echo e($row->artist->change_stock<0?'https://testvps.nwlogics.com/public/assets/images/valyoux/green_arrow_price_going_up.svg': 'https://testvps.nwlogics.com/public/assets/images/valyoux/pink_arrow_circle_down.svg'); ?>"></span>&nbsp;&nbsp;<strong style="color: #ff0093; font-size: 10px;">$<?php echo e($row->artist->stock_value); ?>VXD</strong>&nbsp;<strong style="color: #FF0093; font-size: 10px;"><?php echo e($row->artist->change_stock
+												<0?'': '+'); ?><?php echo e($row->artist->change_stock); ?>%
 											</strong></small></h6>
 							</div>
 						</div>
-						@endforeach
-						{{-- end video list --}}
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+						
 					</div>
 				</div>
 			</div>
 		</div>
-		{{-- modals --}}
+		
 		<div class="modal fade video-modal" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
 			tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
@@ -693,13 +690,13 @@
 <div class="tab-content" id="nav-earn"></div>
 <div class="tab-content" id="nav-valyou"></div>
 
-<script src="{{ URL::asset('assets/js/mouse.event.js') }}"></script>
-<script src="{{ URL::asset('assets/js/watch.js') }}"></script>
+<script src="<?php echo e(URL::asset('assets/js/mouse.event.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('assets/js/watch.js')); ?>"></script>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
-<script src="{{ URL::asset('assets/libs/axios/axios.min.js') }}"></script>
+<?php $__env->startSection('script'); ?>
+<script src="<?php echo e(URL::asset('assets/libs/axios/axios.min.js')); ?>"></script>
 <script>
 	// desktop
 	// comment btn
@@ -780,4 +777,5 @@
 	// });
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\@hbs@\git repository\valyou-laravel\resources\views/watch2.blade.php ENDPATH**/ ?>

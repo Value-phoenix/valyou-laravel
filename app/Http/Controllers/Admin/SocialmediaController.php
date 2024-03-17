@@ -366,10 +366,9 @@ class SocialmediaController extends Controller
 									</a>
 								</div>
 								<div class="p-3">
-									<a class="my-auto text-light-black" href="artist/stock-price/' . $artist->id . '">
-										<p class="mb-0 font-weight-bold fs-2">' . $artist->brand . '&nbsp;&nbsp; <span class="fs-1-1 badge badge-pill badge-primary bg-main">' . $artist->about . '</span></p>
+										<p class="mb-0 font-weight-bold fs-2" style="color: #050f3f">' . $artist->brand . '
 										<p class="mb-0 fs-2 ' . $style . '">' . $stock_value . '</p>
-									</a>
+										<p class="text-about">rapper</p>
 								</div>
 							</div>
 							<span class="d-flex mt-2 px-2">';
@@ -390,13 +389,13 @@ class SocialmediaController extends Controller
 				$html2 .= '<div class="carosel-box mr-2">
 							<div class="d-flex">
 								<a href="artist/stock-price/' . $artist->id . '" class="p-0 m-auto">
-									<img src="' . asset($artist->photo) . '" width="59" height="59" class="rounded-circle avatar-xm m-1 outline-double" alt="">
+									<img src="' . asset($artist->photo) . '" width="48" height="48" class="rounded-circle avatar-xm m-1" alt="" style="border: solid 1px rgb(237 230 230); padding:3px;">
 								</a>
 							</div>
 							<div class="">
 								<div class="">
 									<a href="artist/stock-price/' . $artist->id . '" class="p-0">
-										<p class="m-0 text-center" style="overflow:hidden">' . $artist->brand . '</p>
+										<p class="m-0 text-center" style="overflow:hidden; font-size: 16px; color: #050F2F;">' . $artist->brand . '</p>
 									</a>
 								</div>
 								<div class="d-flex justify-content-center">';

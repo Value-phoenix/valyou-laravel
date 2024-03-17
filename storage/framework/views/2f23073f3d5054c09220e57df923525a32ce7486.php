@@ -3,30 +3,30 @@
 use App\Models\VideoUploads;
 use App\User;
 ?>
-@extends('layouts.master')
 
-@if(request()->segment(2) == "watch-to-earn")
-@section('title') Watch to earn @endsection
-@elseif(request()->segment(2) == "listen-to-earn")
-@section('title') Listen to earn @endsection
-@else
-@section('title') Social Media @endsection
-@endif
-@section('pageCSS')
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css') }}">
+
+<?php if(request()->segment(2) == "watch-to-earn"): ?>
+<?php $__env->startSection('title'); ?> Watch to earn <?php $__env->stopSection(); ?>
+<?php elseif(request()->segment(2) == "listen-to-earn"): ?>
+<?php $__env->startSection('title'); ?> Listen to earn <?php $__env->stopSection(); ?>
+<?php else: ?>
+<?php $__env->startSection('title'); ?> Social Media <?php $__env->stopSection(); ?>
+<?php endif; ?>
+<?php $__env->startSection('pageCSS'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/libs/select2/select2.min.css')); ?>">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/pages/social-media.css') }}">
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/css/pages/social-media.css')); ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/tagify/tagify.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/intl-tel-input/css/intlTelInput.css') }}">
-@endsection
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/libs/tagify/tagify.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('assets/libs/intl-tel-input/css/intlTelInput.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('title') Market @endsection
-@section('bottom-navbar')
+<?php $__env->startSection('title'); ?> Market <?php $__env->stopSection(); ?>
+<?php $__env->startSection('bottom-navbar'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <style>
     .card {
         background: #fff !important;
@@ -64,7 +64,7 @@ use App\User;
     .outline-double {
         outline-color: rgb(237 220 220) !important;
     }
-    @media screen and (max-width: 992px) {
+    @media  screen and (max-width: 992px) {
         .tab-select {
             margin-top: 0px !important;
         }
@@ -118,40 +118,40 @@ use App\User;
         margin-bottom: 0;
      }
 </style>
-<input type="hidden" name="user_wallet_amount" value="{{ auth()->user()->wallet }}" id="user_wallet_amount">
-<input type="hidden" name="user_role" value="{{ check_role() }}" id="user_role">
+<input type="hidden" name="user_wallet_amount" value="<?php echo e(auth()->user()->wallet); ?>" id="user_wallet_amount">
+<input type="hidden" name="user_role" value="<?php echo e(check_role()); ?>" id="user_role">
 <input type="hidden" name="media_id" id="media_id" value="0">
 <input type="hidden" name="own_user_id" id="own_user_id" value="0" />
 <div class="row">
     <div class="col-lg-12 p-0">
         <div id="uploading-section-artist-mobile" class="mobile-mode" >
             <div class="tab-select mtab_all m_artist_list m-0" style="padding-top: 0">
-                {{-- artist list --}}
+                
             </div>
         </div>
         <div class="row mt-2 " style="margin-left: 10px !important">
             <div class="col-md-12 col-lg-7 px-0" >
-                {{-- @if (!Auth::user()->roles->contains(3)) --}}
+                
                 <!-- <p class="uploading-section-artist-sub-heading mb-2"> Create a new post </p> -->
                 <div class="card post-card-mobile-body d-flex mb-1">
                     <div class="uploading-section card-body row align-items-center">
                         <div class="d-flex w-full p-2" style="margin-bottom: 50px !important;">
-                            <img src="{{ isset($user_profile['photo']) ? asset($user_profile['photo']) : asset('assets/images/users/avatar-1.jpg') }}" alt="" class="rounded-circle post-img " style="width: 3rem; height: 3rem;">
+                            <img src="<?php echo e(isset($user_profile['photo']) ? asset($user_profile['photo']) : asset('assets/images/users/avatar-1.jpg')); ?>" alt="" class="rounded-circle post-img " style="width: 3rem; height: 3rem;">
                             <textarea rows="2" class="form-control uploading-section-title ml-3" placeholder="Share your Audio and Video Tracks" style="border: antiquewhite !important"></textarea>
                         </div>
                         <div class="d-flex uploading-section-action w-full">
-                            <a href="{{ route('admin.upload-media') }}" title="Upload Video" class="pt-2 pl-2 inline-flex" style="color:#495057 !important" >
+                            <a href="<?php echo e(route('admin.upload-media')); ?>" title="Upload Video" class="pt-2 pl-2 inline-flex" style="color:#495057 !important" >
                                 <p class=" mr-2 mb-0 " style=" font-size: 0.95rem"><i class="fa fa-video fs-2 pr-2"></i> <span class="d-lg-inline d-none">Upload Video<span></p>
                                 <p class=" mb-0" style="font-size: 0.95rem"><i class="fa fa-music fs-2 pr-2"></i><span class="d-lg-inline d-none" > Upload Audio <span></p>
                             </a>
-                            <a href="{{ route('admin.upload-media') }}" class="btn btn-pink w-auto  btn-sm w-md waves-effect waves-light mr-2  d-flex" > <span class="m-auto">POST NOW</span></a>
+                            <a href="<?php echo e(route('admin.upload-media')); ?>" class="btn btn-pink w-auto  btn-sm w-md waves-effect waves-light mr-2  d-flex" > <span class="m-auto">POST NOW</span></a>
                         </div>
                     </div>
                 </div>
-                {{-- @endif --}}
+                
 
-                {{-- Custom Work Start --}}
-                {{-- <div class="all_social_videos"></div> --}}
+                
+                
                 <div class="card">
                 
                 <div class=" video-watch-part-1 w-full"  style="width: 98% !important; margin-left: 1% !important; margin-top: 1% !important; margin-right: 1%!important;">
@@ -161,10 +161,10 @@ use App\User;
 						<div class="d-flex items-center justify-between" style="padding-top: 2%;">
 							<div class="d-flex items-center px-2">
 								<div class="MuiAvatar-root MuiAvatar-circular w-[50px] h-[50px] css-3i9vrz">
-									<img alt="Travis Howard" src="{{URL::asset('assets/uploads/artist/72921766.jpg')}}" class="MuiAvatar-img css-1hy9t21">
+									<img alt="Travis Howard" src="<?php echo e(URL::asset('assets/uploads/artist/72921766.jpg')); ?>" class="MuiAvatar-img css-1hy9t21">
 								</div>
 								<div class="flex-col items-center px-2">
-									<p  style="color: rgb(255 0 147); font-size: 1rem; margin-bottom: 3px !important;"><b>{{$videos[0]->artist->brand}}</b></p>
+									<p  style="color: rgb(255 0 147); font-size: 1rem; margin-bottom: 3px !important;"><b><?php echo e($videos[0]->artist->brand); ?></b></p>
 									<p class="text-xs" style="font-size: 0.75rem; line-height: 1rem; margin-bottom: 0px !important;">
                                         <span style="color: rgb(209 213 219); margin-right: 1px;">Rapper</span style="color: #050f3f;">
                                         <span>shared video track</span>
@@ -181,20 +181,20 @@ use App\User;
                 <div class="video-watch d-flex">
                     <video class = "my-video" id="see_video" width="100%" controlsList="nodownload" src="" type="video/mp4" controls></video>
                     <div class="w-full overlay d-flex overlay-for-video">
-                        <img src="{{URL::asset('assets/images/play-button.svg')}}" class="m-auto play-btn" alt="">
+                        <img src="<?php echo e(URL::asset('assets/images/play-button.svg')); ?>" class="m-auto play-btn" alt="">
                     </div>
                 </div>
-					{{-- inner button part --}}
+					
 					<div class="inner-button-part w-full">
 						<div class="watch-btn-group m-2">
 							<div class="d-flex ">
 								<div class="left-btn-group desktop-mode">
 									<div class="main-border-btn py-2 px-2 m-2 h-fit d-flex dt-comment-btn">
-										<span><img class="btn-ico" src="{{URL::asset('assets/images/comments.svg')}}" alt=""></span>
+										<span><img class="btn-ico" src="<?php echo e(URL::asset('assets/images/comments.svg')); ?>" alt=""></span>
 			                        	<p class="text-center m-0 p-0-5 hand font-weight-bold ml-1  fs-1-1">COMMENTS </p>
 									</div>
 									<div class="main-border-btn py-2 px-2 m-2 h-fit d-flex dt-promote-btn">
-										<span><img class="btn-ico" src="{{URL::asset('assets/images/promote.svg')}}" alt=""></span>
+										<span><img class="btn-ico" src="<?php echo e(URL::asset('assets/images/promote.svg')); ?>" alt=""></span>
 										<p class="text-center m-0 p-0-5 hand font-weight-bold ml-1  fs-1-1">PROMOTE</p>
 									</div>
 								</div>
@@ -203,18 +203,18 @@ use App\User;
 										<p class="m-0 p-0-5 hand font-weight-bold text-center  fs-1-1">VALYOU SONG</p>
 									</div>
 									<div class="bg-green-gra watch-invest-btn m-2 h-fit">
-										<a href="{{URL::to('artist/stock-price',$artists[0]->id)}}" class=" py-2 px-3 d-flex" >
+										<a href="<?php echo e(URL::to('artist/stock-price',$artists[0]->id)); ?>" class=" py-2 px-3 d-flex" >
 											<p class="text-center m-0 p-0-5 hand font-weight-bold text-white fs-1-1">INVEST IN</p>
 										</a>
 									</div> 	
 								</div>
 								<div class="mobile-mode d-flex justify-content-between w-full">
 									<div class="p-2 h-fit d-flex mo-comment-btn" data-commentid="111">
-										<span><img class="btn-ico" src="{{URL::asset('assets/images/comments.svg')}}" alt=""></span>
+										<span><img class="btn-ico" src="<?php echo e(URL::asset('assets/images/comments.svg')); ?>" alt=""></span>
 										<p class="text-center m-0 ml-1 pt-1  fs-1-1">COMMENTS </p>
 									</div>
 									<div class="p-2 h-fit d-flex mo-promote-btn" data-promoteid="111">
-										<span><img class="btn-ico" src="{{URL::asset('assets/images/promote.svg')}}" alt=""></span>
+										<span><img class="btn-ico" src="<?php echo e(URL::asset('assets/images/promote.svg')); ?>" alt=""></span>
 										<p class="text-center m-0 ml-1 pt-1  fs-1-1">PROMOTE</p>
 									</div>
 									<div class="main-border-btn p-2 mt-1 h-fit mo-valyou-btn" data-valyouid="111">
@@ -227,16 +227,16 @@ use App\User;
                 <div class="row w-full mx-0">
             <div class="personal-detail-info css-1ccbh2c">
                 <div class="personal-img">			
-                    <img src="{{URL::asset('assets/uploads/artist/72921766.jpg')}}" style="width: 48px; height: 48px;" alt="">
+                    <img src="<?php echo e(URL::asset('assets/uploads/artist/72921766.jpg')); ?>" style="width: 48px; height: 48px;" alt="">
                 </div>
                 <div class="scroll-style cursor-grab scrolling-wrapper-lower1 " style="overflow:auto">
                     <div class="w-full personal-detail-info-content-inner">
-                        <h3 class="my-auto mx-2">{{$videos[0]->artist->brand}}</h3>
+                        <h3 class="my-auto mx-2"><?php echo e($videos[0]->artist->brand); ?></h3>
                         <div class="personel-detail-stock-content">
                             <p class="my-auto"><strong class="stock-price">Stock Price:</strong> 
-                                <strong class="stock-value {{(@$videos[0]->artist->stock_value < 0) ?'txt-main': 'text-green'}}">
-                                    <img class="" width="15" height="15" src="{{@$videos[0]->artist->stock_value<0?'https://testvps.nwlogics.com/public/assets/images/valyoux/pink_arrow_circle_down.svg': 'https://testvps.nwlogics.com/public/assets/images/valyoux/green_arrow_price_going_up.svg'}}">
-                                    &nbsp;${{$videos[0]->artist->stock_value}}VXD</strong> &nbsp; - &nbsp; <strong class="stock-percentage {{(@$videos[0]->artist->change_stock < 0) ?'txt-main': 'text-green'}}"> {{$videos[0]->artist->change_stock}}%</strong> 
+                                <strong class="stock-value <?php echo e((@$videos[0]->artist->stock_value < 0) ?'txt-main': 'text-green'); ?>">
+                                    <img class="" width="15" height="15" src="<?php echo e(@$videos[0]->artist->stock_value<0?'https://testvps.nwlogics.com/public/assets/images/valyoux/pink_arrow_circle_down.svg': 'https://testvps.nwlogics.com/public/assets/images/valyoux/green_arrow_price_going_up.svg'); ?>">
+                                    &nbsp;$<?php echo e($videos[0]->artist->stock_value); ?>VXD</strong> &nbsp; - &nbsp; <strong class="stock-percentage <?php echo e((@$videos[0]->artist->change_stock < 0) ?'txt-main': 'text-green'); ?>"> <?php echo e($videos[0]->artist->change_stock); ?>%</strong> 
                                 </p>
                         </div>
                         <div class="personal-detail-info-category">
@@ -250,23 +250,23 @@ use App\User;
                 </div>
             </div>
             <div class="bg-green-gra watch-invest-btn my-2 w-full mobile-mode k-shadow">
-                <a href="{{URL::to('artist/stock-price',$artists[0]->id)}}" class=" py-2 px-3 h-fit w-full" >
+                <a href="<?php echo e(URL::to('artist/stock-price',$artists[0]->id)); ?>" class=" py-2 px-3 h-fit w-full" >
                     <p class="text-center m-0 font-weight-bold text-white fs-2">INVEST IN ARTIST</p>
                 </a>
             </div> 
         </div>
 
         <div class="row w-full mx-0 css-1ccbh2c">
-            @include('partician.brand_sponsor_list',['list'=>$artists])
+            <?php echo $__env->make('partician.brand_sponsor_list',['list'=>$artists], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
 				</div>
                 </div>
                 
-                {{-- Custom Work End --}}
-                @include('partician.video_feature_modal',[])
+                
+                <?php echo $__env->make('partician.video_feature_modal',[], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
             <div class="col-md-12 col-lg-5 desktop-mode relative">
-                @include('partician.video_feature_section',[])
+                <?php echo $__env->make('partician.video_feature_section',[], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <div class="uploading-section-artist card p-4 " style="width: fit-content">
                     <div class="d-inline-flex">
                         <span class="uploading-section-artist-main-heading" > Trending Artists In Stock Market </span>
@@ -276,7 +276,7 @@ use App\User;
                         </div>
                     </div>
                     <div style="margin-buttom: 40px !important">
-                        @include('partician.artist_markets',['artist_by_country'=>$artist_by_country])
+                        <?php echo $__env->make('partician.artist_markets',['artist_by_country'=>$artist_by_country], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     </div>
 
                 </div>
@@ -285,36 +285,7 @@ use App\User;
         
         <!-- end row -->  
         <div class="row w-full mx-0">
-            {{-- <div class="personal-detail-info">
-                <div class="personal-img">			
-                    <img src="{{URL::asset('assets/uploads/artist/72921766.jpg')}}" style="width: 48px; height: 48px;" alt="">
-                </div>
-                <div class="scroll-style cursor-grab scrolling-wrapper-lower1" style="overflow:auto">
-                    <div class="w-full personal-detail-info-content-inner">
-                        <h3 class="my-auto mx-2">{{$videos[0]->artist->brand}}rwrwrwerwrwytryryteryretyertyereytretyre</h3>
-                        <div class="personel-detail-stock-content">
-                            <p class="my-auto"><strong class="stock-price">Stock Price:</strong> <strong class="stock-value {{(@$videos[0]->artist->stock_value < 0) ?'txt-main': 'text-green'}}"><img class="" width="15" height="15" src="{{@$videos[0]->artist->stock_value<0?'https://testvps.nwlogics.com/public/assets/images/valyoux/pink_arrow_circle_down.svg': 'https://testvps.nwlogics.com/public/assets/images/valyoux/green_arrow_price_going_up.svg'}}">&nbsp;${{$videos[0]->artist->stock_value}}VXD</strong> &nbsp; - &nbsp; <strong class="stock-percentage {{(@$videos[0]->artist->change_stock < 0) ?'txt-main': 'text-green'}}"> {{$videos[0]->artist->change_stock}}%</strong> </p>
-                        </div>
-                        <div class="personal-detail-info-category">
-                            <p><strong class="song-title">Song Title:</strong> <strong class="song-from"> &nbsp;Started From The Bottom</strong></p>
-                            &nbsp;&nbsp;&nbsp;
-                            <p><strong class="song-valyou">Song Valyou:</strong><strong class="song-valyou-value">&nbsp; $1,000,000,24,567</strong></p>
-                            &nbsp;&nbsp;&nbsp;
-                            <p><strong class="song-category">Music Artist Brand Listing Category:</strong> <strong class="song-type">&nbsp; Major Artist</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-green-gra watch-invest-btn my-2 w-full mobile-mode k-shadow">
-                <a href="{{URL::to('artist/stock-price',$artists[0]->id)}}" class=" py-2 px-3 h-fit w-full" >
-                    <p class="text-center m-0 font-weight-bold text-white fs-2">INVEST IN ARTIST</p>
-                </a>
-            </div> 
-        </div>
-
-        <div class="row w-full mx-0">
-            @include('partician.brand_sponsor_list',['list'=>$artists])
-        </div> --}}
+            
         </div>
 
         <!--Bid now Modal -->
@@ -484,18 +455,18 @@ use App\User;
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
-<script src="{{ URL::asset('assets/libs/axios/axios.min.js') }}"></script>
-<script src="{{ URL::asset('assets/libs/tagify/tagify.min.js') }}"></script>
-<script src="{{ URL::asset('assets/libs/intl-tel-input/js/intlTelInput.js') }}"></script>
-<script src="{{ URL::asset('assets/js/mouse.event.js') }}"></script>
-<script src="{{ URL::asset('assets/js/pages/social-media.js') }}"></script>
-<script class="iti-load-utils" async="" src="{{ URL::asset('assets/libs/intl-tel-input/js/utils.js') }}"></script>
-@endsection 
+<?php $__env->startSection('script'); ?>
+<script src="<?php echo e(URL::asset('assets/libs/axios/axios.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('assets/libs/tagify/tagify.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('assets/libs/intl-tel-input/js/intlTelInput.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('assets/js/mouse.event.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('assets/js/pages/social-media.js')); ?>"></script>
+<script class="iti-load-utils" async="" src="<?php echo e(URL::asset('assets/libs/intl-tel-input/js/utils.js')); ?>"></script>
+<?php $__env->stopSection(); ?> 
 
-@section('script-bottom')
+<?php $__env->startSection('script-bottom'); ?>
 <script >
 
     var app_url = $("meta[name=app-url]").attr("content");
@@ -689,7 +660,7 @@ use App\User;
             placeholderNumberType: "MOBILE",
             separateDialCode: true,
             hiddenInput: "full",
-            utilsScript: "{{ URL::asset('assets/libs/intl-tel-input/js/utils.js') }}"
+            utilsScript: "<?php echo e(URL::asset('assets/libs/intl-tel-input/js/utils.js')); ?>"
         }));
 
         $('#phone'+id).keypress(function(event) {
@@ -869,7 +840,7 @@ $(document).on('click', '.playvideo', function() {
     
     axios({
         method: "post",
-        url: "{{ route('admin.promotereward') }}",
+        url: "<?php echo e(route('admin.promotereward')); ?>",
         data: {
             id: id,
             userId,
@@ -909,12 +880,12 @@ $(document).on('click','.overlay-for-video',function () {
 $(document).on('click', '.playvideo', function() {
     var id = $(this).attr('id');
     let userId = $(`#overlay${id}`).data('userid');
-    let wallet = "{{ auth()->user()->wallet }}";
+    let wallet = "<?php echo e(auth()->user()->wallet); ?>";
     console.log(wallet);
     if (Number(wallet) > 0.03) {
         axios({
             method: "post",
-            url: "{{ route('admin.valyousong') }}",
+            url: "<?php echo e(route('admin.valyousong')); ?>",
             data: {
                 id: id,
                 userId
@@ -942,15 +913,17 @@ $(document).on('click', '.playvideo', function() {
 if (Session::has('error')) {
 ?>
     <script type="text/javascript">
-        swal("{{ Session::get('error') }}");
+        swal("<?php echo e(Session::get('error')); ?>");
     </script>
 <?php }
 if (Session::has('success')) {
 ?>
     <script type="text/javascript">
-        swal("{{ Session::get('success') }}");
+        swal("<?php echo e(Session::get('success')); ?>");
     </script>
 <?php } ?>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\@hbs@\git repository\valyou-laravel\resources\views/social-media.blade.php ENDPATH**/ ?>

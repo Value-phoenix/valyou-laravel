@@ -127,9 +127,9 @@ class HomeController extends Controller {
                 $html .= '</td>';
                 $html .= '<td  style="width: 10%" class="row-btn-margin" >';
                 if ((!empty($a->change_stock)) && $a->change_stock > 0) {
-                    $html .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3" src="' . asset('assets/images/valyoux/green_arrow_price_going_up.svg') . '" alt=""></a><span class="status-success background-change" style="width:85px;">+ ' . numberformat($a->change_stock) . '%</span>';
+                    $html .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3" src="' . asset('assets/images/valyoux/green_arrow_price_going_up.svg') . '" alt=""></a><span class="status-success background-change custom-button-shape" style="width:85px;">+ ' . numberformat($a->change_stock) . '%</span>';
                 } else if ((!empty($a->change_stock)) && $a->change_stock < 0) {
-                    $html .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3 background-change" src="' . asset('assets/images/valyoux/pink_arrow_circle_down.svg') . '" alt=""></a><span class="status-danger" style="width:85px;">' . signFormat($a->change_stock,0) . '%</span>';
+                    $html .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3" src="' . asset('assets/images/valyoux/pink_arrow_circle_down.svg') . '" alt=""></a><span class="status-danger background-change custom-button-shape" style="width:85px;">' . signFormat($a->change_stock,0) . '%</span>';
                 }
                 if($market_value == 0 || $market_value == null)
                     $market_value = '';
@@ -189,9 +189,9 @@ class HomeController extends Controller {
                 $html2 .= '</td>';
                 $html2 .= '<td class="row-btn-margin">';
                 if ((!empty($a->change_stock)) && $a->change_stock > 0) {
-                    $html2 .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3 " src="' . asset('assets/images/valyoux/green_arrow_price_going_up.svg') . '" alt=""></a><span class="status-success background-change" style="width:85px;">+ ' . numberformat($a->change_stock) . '%</span>';
+                    $html2 .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3" src="' . asset('assets/images/valyoux/green_arrow_price_going_up.svg') . '" alt=""></a><span class="status-success  background-change custom-button-shape " style="width:85px;">+ ' . numberformat($a->change_stock) . '%</span>';
                 } else if ((!empty($a->change_stock)) && $a->change_stock < 0) {
-                    $html2 .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3 "  src="' . asset('assets/images/valyoux/pink_arrow_circle_down.svg') . '" alt=""></a><span class="status-danger" style="width:85px;">' . signFormat($a->change_stock,0) . '%</span>';
+                    $html2 .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3 "  src="' . asset('assets/images/valyoux/pink_arrow_circle_down.svg') . '" alt=""></a><span class="status-danger  background-change custom-button-shape" style="width:85px;">' . signFormat($a->change_stock,0) . '%</span>';
                 }
 
                 $html2 .= '</td>';
@@ -228,10 +228,10 @@ class HomeController extends Controller {
 
                 $html3 .= '<td  style="width: 10%" class="row-btn-margin" >';
                 if ((!empty($a->change_stock)) && $a->change_stock > 0) {
-                    $html3 .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3" src="' . asset('assets/images/valyoux/green_arrow_price_going_up.svg') . '" alt=""></a><span class="status-success background-change" style="width:85px;"> +' . numberformat($a->change_stock) . '%</span>';
+                    $html3 .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3 " src="' . asset('assets/images/valyoux/green_arrow_price_going_up.svg') . '" alt=""></a><span class="status-success background-change custom-button-shape" style="width:85px;"> +' . numberformat($a->change_stock) . '%</span>';
                 } else if ((!empty($a->change_stock)) && $a->change_stock < 0) {
 
-                    $html3 .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3 background-change" src="' . asset('assets/images/valyoux/pink_arrow_circle_down.svg') . '" alt=""></a><span class="status-danger" style="width:85px;">' . signFormat($a->change_stock,0) . '%</span>';
+                    $html3 .= '<a href="artist/stock-price/' . $a->id . '"><img width="20" class="mr-3 " src="' . asset('assets/images/valyoux/pink_arrow_circle_down.svg') . '" alt=""></a><span class="status-danger  background-change custom-button-shape" style="width:85px;">' . signFormat($a->change_stock,0) . '%</span>';
                 }
                 $html3 .= '</td>';
                 $html3 .= '<td  style="width: 10%;"font-size: 16px;>' . $stock_value . '</td>';
