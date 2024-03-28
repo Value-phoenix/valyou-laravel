@@ -479,7 +479,7 @@
 			<div class="col-sm-12 col-md-12 col-lg-8 ">
 				<div class="video-watch-part-1 w-full  p-2 background-shadow">
 					<div class="video-watch d-flex">
-						<video class="my-video" id="see_video" width="100%" controlsList="nodownload" src=""
+						<video class="my-video see_video" id="see_video" width="100%" controlsList="nodownload" src=""
 							type="video/mp4" controls></video>
 						<div class="w-full overlay d-flex overlay-for-video">
 							<img src="<?php echo e(URL::asset('assets/images/play-button.svg')); ?>" class="m-auto play-btn" alt="">
@@ -632,15 +632,15 @@
 						<?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 						<div class="especailly-part inline-flex w-full background-shadow px-2 my-2 "
 							onclick="selVideoDetail(<?php echo e($row->id); ?>, 1)">
-							<div class="video-detail-image" width="150" height="100">
+							<div class="video-detail-image" width="150" height="100" style="width: 55%;">
 								<?php if($row->audio_cover_image): ?>
-								<img class="my-video" width="100%" src="<?php echo e(asset($row->audio_cover_image)); ?>">
+								<img class="my-video" width="100%" src="<?php echo e(asset($row->audio_cover_image)); ?>" >
 								<?php else: ?>
 								<video class="my-video see_video" controlsList="nodownload" width="100%"
 									src="<?php echo e(asset($row->name)); ?>" type="video/mp4"></video>
 								<?php endif; ?>
 							</div>
-							<div class="video-detail-info p-0" style="padding: 0;">
+							<div class="video-detail-info p-0" style="padding: 0; width: 45%;">
 								<p style="font-size: 13px"><?php echo e(@$row->singer); ?> - <?php echo e(@$row->audio_title); ?></p>
 								<p style="font-size: 12px;"><?php echo e(@$row->artist->about); ?></p>
 								<p style="font-size: 8px; font-weight: 200;">Song Valyou: <strong id="valyou-val">$<?php echo e(numberformat(@$row->artist->stock_value)); ?></strong></p>

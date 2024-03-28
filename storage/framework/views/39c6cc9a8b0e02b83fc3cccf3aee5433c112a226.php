@@ -266,13 +266,13 @@
                     <?php //$artist1 = $artist['artist'] - number_format($artist['music_fan_investor'],4);
 
                     ?>
-                    <div class="mo-single-row row">
-                        <div class="col-6 col-md-2">
+                    <div class="mo-single-row row" style="margin-bottom: 50px">
+                        <div class="col-6 col-md-2" style="height: 65px">
                             <h5>Artist</h5>
                             <p><?= isset($artist['artist'])?number_format($artist['artist'],6):0;?>%</p>
                         </div>
 
-                        <div class="col-6 col-md-2 text-right">
+                        <div class="col-6 col-md-2 text-right" style="height: 65px">
                             <h5>Music Fans Investors</h5>
                             <p><?= isset($artist['music_fan_investor'])?number_format($artist['music_fan_investor'],6):0;?>%</p>
                         </div>

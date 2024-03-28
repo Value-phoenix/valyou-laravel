@@ -399,7 +399,7 @@
                     aria-controls="nav-investment" aria-selected="false"> Investments </a>
                 <?php if(!empty($checkArtist)){?>
                 <a href="#artist-personal-account" class="unclicked" id="nav-artist-personal-account" data-toggle="pill"
-                    role="tab" aria-controls="expression_of_interest1" aria-selected="false"> Artist Personal Account
+                    role="tab" aria-controls="nav-artist-personal-account" aria-selected="false"> Artist Personal Account
                 </a>
                 <a href="#artist" class="unclicked" id="nav-artist" data-toggle="pill" role="tab"
                     aria-controls="expression_of_interest" aria-selected="false"> Artist Company Account </a>
@@ -491,6 +491,7 @@ $access_token = '0.0';
             <h2 id="valyoux-access-token-price" class="mb-0"> <?php echo e(number_format($access_token,2)); ?> Tokens</h2>
             <h2 id="investor-price" class="mb-0">$ <?php echo e(numberformat($total['investor_total'])); ?> VXD</h2>
             <h2 id="business-price" class="mb-0">$ <?php echo e(numberformat($total['business_total'])); ?> VXD</h2>
+            <h2 id="artist-account-price" class="mb-0">$ 17.561 VXD</h2>
             <!--  -->
             <?php  if(auth()->user()->is_admin == 1) {?>
             <h2 id="selling_stock_revenue_amount" class="mb-0 selling_stock_revenue_amount">$ 52.00 VXD</h2>
@@ -1425,6 +1426,12 @@ $access_token = '0.0';
             aria-labelledby="nav-security-compliance-account">
 
         </div>
+
+        <div class="tab-pane fade" id="artist-personal-account" role="tabpanel" aria-labelledby="nav-artist-personal-account">       
+            <div class="background-shadow transaction-artist-btn p-4" style="text-align: center; font-size: 14px">
+                <span>TRANSACTIONS &amp; EARNING HISTORY<span></span></span>
+            </div>
+        </div>
         <!-- security-compliance-account end -->
         <!-- valyoux-access-token start -->
         <div class="tab-pane fade" id="valyoux-access-token" role="tabpanel" aria-labelledby="nav-valyoux-access-token">
@@ -1479,8 +1486,10 @@ $access_token = '0.0';
                     <br>
 
                         <div class="background-shadow transaction-access-token-btn p-4"
-                        style="text-align: center; font-size: 14px"><span>ACCESS TOKENS TRANSATIONS &
-                        EARNING HISTORY<span></div>
+                        style="text-align: center; font-size: 14px">
+                        <span>ACCESS TOKENS TRANSACTIONS & EARNING HISTORY<span>
+                        </div>
+                        
 
                     <!--access tokens table transaction history  -->
                     <div class="row mt-5" id="access-token-transaction" style="display:none">
@@ -1833,6 +1842,11 @@ $access_token = '0.0';
             $('#v-pills-tab>div>div>div>a.active').removeClass('active');
             $('.media-body h2.active').removeClass('active');
             $('#investor-price').addClass('active');
+        });
+        $('#nav-artist-personal-account').click(function () {
+            $('#v-pills-tab>div>div>div>a.active').removeClass('active');
+            $('.media-body h2.active').removeClass('active');
+            $('#artist-account-price').addClass('active');
         });
         $('#nav-business').click(function () {
             $('#v-pills-tab>div>div>div>a.active').removeClass('active');

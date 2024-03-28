@@ -316,7 +316,7 @@ $ETHUSDT = json_decode($response)->price;
                     <p class="text-green"> +2.5% </p>
                 </div>
             </div>
-            <div class="row my-5" ">
+            <div class="row my-5">
                 <div class=" col-md-6 col-sm-12 col-xs-12 flex ">
                     <div class=" pl-3 m-auto">
                 <p class="txt-sky w-full bg-sky text-center txt-bold txt-xl p-05">The World's First Blockchain
@@ -356,7 +356,7 @@ $ETHUSDT = json_decode($response)->price;
         </div>
         <div
             class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
-            <img src="<?php echo e(asset('assets/images/alibabacloud_icon.svg')); ?>" style="height: 70">
+            <img src="<?php echo e(asset('assets/images/alibabacloud_icon.svg')); ?>" style="height: 70px; width: 130px;">
             <div class="text-xm text-imgdec">Alibaba Group Award Winner</div>
         </div>
         <div
@@ -371,35 +371,34 @@ $ETHUSDT = json_decode($response)->price;
         </div>
         <div
             class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
-            <img src="<?php echo e(asset('assets/images/download-5.png')); ?>" style="height: 70"">
-                    <div class=" text-xm text-imgdec">Alibaba Group Award Winner
+            <img src="<?php echo e(asset('assets/images/download-5.png')); ?>" style="height: 70px; width: 130px;">
+            <div class=" text-xm text-imgdec">Alibaba Group Award Winner</div>
         </div>
-    </div>
-    <div
-        class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
-        <img src="<?php echo e(asset('assets/images/download-4.jpg')); ?>" style="height: 70">
-        <div class="text-xm text-imgdec">Alibaba Group Award Winner</div>
-    </div>
-    <div
-        class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
-        <img src="<?php echo e(asset('assets/images/download-6.png')); ?>" style="height: 70"">
-                    <div class=" text-xm text-imgdec">Alibaba Group Award Winner
-    </div>
-    </div>
-    <div
-        class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
-        <img src="<?php echo e(asset('assets/images/download-7.png')); ?>" style="height: 70">
-        <div class="text-xm text-imgdec">Alibaba Group Award Winner</div>
-    </div>
-    <div
-        class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
-        <img src="<?php echo e(asset('assets/images/download-8.png')); ?>" style="height: 70">
-        <div class="text-xm text-imgdec">Alibaba Group Award Winner</div>
-    </div>
-    <div
-        class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
-        <img src="<?php echo e(asset('assets/images/fintech_logo.png')); ?>" style="height: 70">
-    </div>
+        <div
+            class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
+            <img src="<?php echo e(asset('assets/images/download-4.jpg')); ?>" style="height: 70">
+            <div class="text-xm text-imgdec">Alibaba Group Award Winner</div>
+        </div>
+        <div
+            class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
+            <img src="<?php echo e(asset('assets/images/download-6.png')); ?>" style="height: 70px; width: 130px;">
+            <div class=" text-xm text-imgdec">Alibaba Group Award Winner</div>
+        </div>
+        <div
+            class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
+            <img src="<?php echo e(asset('assets/images/download-7.png')); ?>" style="height: 70">
+            <div class="text-xm text-imgdec">Alibaba Group Award Winner</div>
+        </div>
+        <div
+            class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
+            <img src="<?php echo e(asset('assets/images/download-8.png')); ?>" style="height: 70">
+            <div class="text-xm text-imgdec">Alibaba Group Award Winner</div>
+        </div>
+        <div
+            class="h-130 shadow-ssm p-3 text-xl txt-bold txt-title d-flex gap-3 flex-column w-full  d-flex justify-center align-center">
+            <img src="<?php echo e(asset('assets/images/fintech_logo.png')); ?>" style="height: 70px; width: 130px;">
+            <div class="text-xm text-imgdec">Alibaba Group Award Winner</div>
+        </div>
     </div>
     <div class="mt-13">
         <div class="shadow-ssm d-flex row-reverse py-4 justify-center align-center">
