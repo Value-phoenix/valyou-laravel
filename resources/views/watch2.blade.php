@@ -178,10 +178,10 @@
 			border-radius: 5px;
 		}
 
-		.avatar-md {
+		/* .avatar-md {
 			height: 50px !important;
 			width: 50px !important;
-		}
+		} */
 
 		.mo-carousel-info-part {
 			margin-bottom: 15px;
