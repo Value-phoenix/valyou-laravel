@@ -1223,7 +1223,7 @@ $checkvideo = '';
             <div class="col-4 col-md-4 text-center padding-r ">
                 <div class="card shadow-none share-valyou-music" data-valyouid="{{ $item->id }}">
                     <div class="card-body body-p">
-                        <img class="mb-2 share-box-image" src="{{ asset('assets/images/valyoux/valyousongiconnew@2x.png') }}">
+                        <img class="mb-2 share-box-image" src="{{ asset('assets/images/valyoux/valyousongiconnew@2x.png') }}" style="width: 40px; height: 40px;">
                         <p class="card-text mobile-v">Valyou Song</p>
                     </div>
                 </div>

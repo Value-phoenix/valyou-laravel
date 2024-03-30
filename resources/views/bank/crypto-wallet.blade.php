@@ -1432,6 +1432,78 @@ $access_token = '0.0';
             <div class="background-shadow transaction-artist-btn p-4" style="text-align: center; font-size: 14px">
                 <span>TRANSACTIONS &amp; EARNING HISTORY<span></span></span>
             </div>
+            <div class="row" id="artist-trancsaction-person" style="display: none">
+                <div class="col-lg-12">
+                    <div class="row mt-5">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Artist Transaction & Earning History</h4>
+                                    <h5>Income | Expenditure</h5>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-sm-12 col-md-3 col-xs-12 mt-4">
+                                            <input type="text" id="myInput" class="form-control" autocomplete="off"
+                                                placeholder="Search ..">
+                                        </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <div class="table-responsive">
+                                            <table id="datatable1"
+                                                class="datatable table table-hover dt-responsive nowrap"
+                                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>From</th>
+                                                        <th>To</th>
+                                                        <th>Transaction ID</th>
+                                                        <th>Amount</th>
+                                                        <th>Note</th>
+                                                        <th>Transaction Date-Time</th>
+                                                        <!--<th><i class="bx bxs-down-arrow"></i></th> -->
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <?php   $i = 1; ?>
+                                                    @foreach($transactions_data['artist'] as $row)
+
+                                                    <tr>
+                                                        <td>{{ $i++ }}</td>
+                                                        <td>
+                                                            <div class="set_display">
+                                                                <img src="{{ isset($row['from_profile']) ? asset($row['from_profile']) : asset('/assets/images/users/avatar-1.jpg') }}"
+                                                                    alt=""
+                                                                    class="rounded-circle header-profile-user user-avatar-obj-fit-cover">&nbsp;
+                                                                <p class="set_margin"> {{ $row['from_name']}}</p>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="set_display">
+                                                                <img src="{{ isset($row['to_profile']) ? asset($row['to_profile']) : asset('/assets/images/users/avatar-1.jpg') }}"
+                                                                    alt=""
+                                                                    class="rounded-circle header-profile-user user-avatar-obj-fit-cover">&nbsp;
+                                                                <p class="set_margin">{{ $row['to_name'] }}</p>
+                                                            </div>
+                                                        </td>
+                                                        <td>{{ $row['token'] }}</td>
+                                                        <td>$ {{ numberformat($row['amount']) }} VXD</td>
+                                                        <td>{{ $row['note'] }}</td>
+                                                        <td>{{ $row['created_at'] }}</td>
+
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- security-compliance-account end -->
         <!-- valyoux-access-token start -->
@@ -1715,6 +1787,10 @@ $access_token = '0.0';
 
             $(document).on('click', '.transaction-artist-btn', function () {
                 $('#artist-trancsaction').toggle();
+
+            });
+            $(document).on('click', '.transaction-artist-btn', function () {
+                $('#artist-trancsaction-person').toggle();
 
             });
 
