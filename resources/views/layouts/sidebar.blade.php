@@ -218,7 +218,6 @@ use App\Http\Controllers\Admin\RoleController;
 			font-size: 16px;
 			/* border: 1px solid #FFFFFF; */
     /* border-radius: 30px; */
-    }
 
     */
     /* .tab-select-nav a:hover{
@@ -288,7 +287,7 @@ use App\Http\Controllers\Admin\RoleController;
                             <div class="media">
                                 <div class="mr-2">
                                     <img src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/assets/images/users/avatar-1.jpg') }}"
-                                        alt="" class="avatar-md rounded-circle img-thumbnail">
+                                        alt="" class="avatar-md rounded-circle img-thumbnail" style=" height: 4.5rem; width: 4.5rem; object-fit: cover;">
                                 </div>
                                 <div class="media-body align-self-center">
                                     <div class="text-muted ml-3">
