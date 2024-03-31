@@ -344,8 +344,40 @@
 	.bottom-button-bordered button:first-child{
 		margin-right: 20px;
 	}
-
-
+	.cus-font{
+		font-size: 25px;
+		font-weight: bold;
+	}
+	.cus-first{
+		padding: 10px 10%;
+	}
+	.cus-first-1{
+		color: rgb(120, 120, 120);
+		/* padding: 10px 14%; */
+	}
+	.cus-second{
+		padding: 10px 2% 10px 5%;
+	}
+	.cus-second-1{
+		padding: 10px 5% 10px 2%;
+	}
+	.custom-define-style{
+		background-color: transparent;
+		border: rgb(220, 220, 220) solid 2px;
+		padding: 17.5px;
+		border-radius: 12px;
+	}
+	.custom-btn-set{
+		font-size: 20px;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    border: rgb(224,224,224) 2px solid;
+		color: rgb(70,215,190);
+		background-color: transparent;
+		border-radius: 8px;
+		border-style: outset;
+	}
 	/* end promote part */
 </style>
 
@@ -403,12 +435,12 @@
 				</div>
 	</div>
 	<div class="promote-edit editmodal-content" >
-		<div class="mo-promote-main-body p-3" style="width: 100%; padding: 22px 34px !important">
+		<div class="mo-promote-main-body p-1" style="width: 100%; padding: 22px 14px !important">
 			<div class="promote-comment-part">
-				<div class="comment-logo-part"  >
+				<div class="comment-logo-part" style="position: relative; left: 30%; text-align: center !important; margin-bottom: 60px;"  >
 					<!-- <img src="<?php echo e(URL::asset('assets/uploads/artist/72921766.jpg')); ?>" style="width: 48px; height: 48px" alt=""> -->
 					<div class="comment-logo-detail-info">
-						<p class="py-auto"><strong>Pronmpt</strong></p>
+						<p class="py-auto"><strong style="font-size: 25px">Promote</strong></p>
 					</div>
 				</div>	
 				<div class="close-promote-modal fs-4 close_btn">
@@ -419,17 +451,42 @@
 			<div class="input-data-field">
 				<form class="scrollable">
 					<div class="form-group">
-						<label for="inputNumPeople">1. How much would you like to spend</label>
-						<input type="text" class="input-bottom-line input-round" id="inputNumPeople" placeholder="Budget Amount">
+						<label for="inputNumPeople">1. How many listeners would you like to reach?</label>
+						<div style="display: flex; justify-content: center;border:rgb(220, 220, 220) solid 2px; border-radius: 12px;
+						">
+							<div id="inputNumPeople-minuse-first" class="cus-font cus-first-1" style="padding: 10px 10% 10px 25%;">-</div>
+							<div id="inputMumberPoeple-first" class="cus-font cus-first">50</div>
+							<div id="inputNumPeople-plus-first" class="cus-font cus-first-1" style="padding: 10px 25% 10px 10%;">+</div>
+						</div>
+						
 					</div>
 					<div class="form-group">
-						<label for="inputPrice">2. How much would you pay each listener</label>
-						<input type="text" class="input-bottom-line input-round" id="inputPrice" placeholder="Each person that listens to this song will receive">
+						<label for="inputPrice">2. How much would you like to pay each listener per steam?</label>
+						<div style="display: flex; justify-content: center;border:rgb(200, 200, 200) solid 2px; border-radius: 12px;
+						">
+							<div id="inputNumPeople-minuse-second" class="cus-font cus-first-1" style="padding: 10px 10% 10px 25%;">-</div>
+							<div class="cus-font cus-second">V$</div>
+							<div id="inputMumberPoeple-second" class="cus-font cus-second-1">50</div>
+							<div id="inputNumPeople-plus-second" class="cus-font cus-first-1" style="padding: 10px 25% 10px 10%;">+</div>
+						</div>
+						
 					</div>
 					<div class="form-group">
-						<label for="inputCompany">3.How would you like to promote this track?</label>
-						<div class="promote-seletor btn btn-success" onclick="autoFitModal('promote-edit', 500)" data-toggle="collapse" data-target="#mo-select-promote">
-							<span>Please Select</span><i class="fa fa-sort-down"></i>
+						<label for="inputCompany">3.Total Spend</label>
+						<div style="display: flex; justify-content: center;border:rgb(200, 200, 200) solid 2px; border-radius: 12px;
+						">
+							<div id="inputNumPeople-minuse-third" class="cus-font cus-first-1" style="padding: 10px 10% 10px 25%;">-</div>
+							<div class="cus-font cus-second">V$</div>
+							<div id="inputMumberPoeple-third" class="cus-font cus-second-1">50</div>
+							<div id="inputNumPeople-plus-third" class="cus-font cus-first-1" style="padding: 10px 25% 10px 10%;">+</div>
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label for="inputCompany">4.SElect Promotion Type</label>
+						<div class=" custom-define-style" data-toggle="collapse" data-target="#mo-select-promote">
+							<span> &nbsp</span>
+							<i class="fa fa-sort-down" style="float: right"></i>
 						</div>
 					</div>
 					<div class="show-target-content collapse" id="mo-select-promote" >
@@ -467,11 +524,11 @@
 							<i class="fa fa-info-circle"></i>
 						</div>
 					</div>
-					<div class="bottom-button">
-						<p class="change-font"><strong>Total Amount to start promoting: $20.00</strong></p>
-						<div class="btn-field">
-							<button type="button" class="btn btn-cancel btn-outline-secondary w-150">Cancel</button>
-							<button type="button" class="btn btn-success bg-green-gra w-150 btn-promote">Promote</button>
+					<div class="bottom-button" style="margin-bottom: 50px;">
+						
+						<div class="btn-field" style="margin-top: 10px;">
+							
+							<button type="button" class="btn btn-success w-150 btn-promote custom-btn-set">Start Promotion</button>
 						</div>
 					</div>
 											
@@ -513,6 +570,36 @@
 
 <script src="<?php echo e(URL::asset('assets/js/watch.js')); ?>"></script>
 <script>
+	$(document).on('click', '#inputNumPeople-minuse-first', function() {
+    var target = parseInt($('#inputMumberPoeple-first').html());
+    $('#inputMumberPoeple-first').html(target - 1);
+	});
+
+	$(document).on('click', '#inputNumPeople-plus-first', function() {
+    var target = parseInt($('#inputMumberPoeple-first').html());
+    $('#inputMumberPoeple-first').html(target + 1);
+	});
+
+	$(document).on('click', '#inputNumPeople-minuse-second', function() {
+    var target = parseInt($('#inputMumberPoeple-second').html());
+    $('#inputMumberPoeple-second').html(target - 1);
+	});
+
+	$(document).on('click', '#inputNumPeople-plus-second', function() {
+    var target = parseInt($('#inputMumberPoeple-second').html());
+    $('#inputMumberPoeple-second').html(target + 1);
+	});
+
+	$(document).on('click', '#inputNumPeople-minuse-third', function() {
+    var target = parseInt($('#inputMumberPoeple-third').html());
+    $('#inputMumberPoeple-third').html(target - 1);
+	});
+
+	$(document).on('click', '#inputNumPeople-plus-third', function() {
+    var target = parseInt($('#inputMumberPoeple-third').html());
+    $('#inputMumberPoeple-third').html(target + 1);
+	});
+
 	// send comment
 	function sendComment(input_class) {
 			var media_id = $('#media_id').val();

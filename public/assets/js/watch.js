@@ -183,9 +183,9 @@ var num_count = 0;
 			})
 
 			//promote modal fit heigjt
-			$('.promote-seletor').click(function(){
-				autoFitModal('promote-edit');
-			});
+			// $('.promote-seletor').click(function(){
+			// 	autoFitModal('promote-edit');
+			// });
 			
 			
 		// end common function
