@@ -117,7 +117,7 @@
     }
 
     .row.deposit {
-        padding: 50px 20px;
+        padding: 50px 3px;
         box-shadow: 0 1.5px 4px 0 rgba(0, 0, 0, .3) !important;
     }
 
@@ -357,6 +357,22 @@
 .back-page-btn {
     display: none;
 }
+.input-custom {
+    position: relative;
+    display: inline-block;
+}
+
+.arrow-icon {
+    position: absolute;
+    font-size: 15px;
+    top: 25px;
+    right: 0;
+    height: 100%;
+    line-height: 50px; /* Match input height */
+    padding: 0 3px; /* Adjust padding for positioning */
+    cursor: pointer;
+}
+
 </style>
 
 <?php $__env->stopSection(); ?>
@@ -1107,29 +1123,30 @@ $access_token = '0.0';
                                     <div class="pb-4 pt-4">
                                         <span class="send-label">Send Money To</span>
                                     </div>
-
+                                    <div class="input-group input-custom">
                                     <input id="users" autocomplete="off"
-                                        style="height: 50px !important; border-radius: 3px "
-                                        placeholder="Who would you like to send money to?">
+                                        style="height: 50px !important; border-radius: 12px "
+                                        placeholder="Who would you like to send money to?"><div class="arrow-icon">&#9660;</div>
+                                    </div>
                                     <input id="user_id" name="user_id" hidden>
-                                    <div class="mains3 col-sm-12 p-0" style="display:none;">
+                                    <div class="mains3 col-sm-12 p-0" style="display:none;border-radius: 12px;">
                                     </div>
                                 </div>
-                                <div class="col-md-12 mb-2 ">
+                                <div class="col-md-12 mb-2 px-0">
                                     <div class="pb-4 pt-4">
                                         <span class="send-label">Send Amount</span>
                                     </div>
 
                                     <input type="number" id="wallet" name="wallet" step="any" min="0.1"
                                         placeholder="Send Amount"
-                                        style="height: 50px !important; background-color: black; color: white; border-radius: 3px"
+                                        style="height: 50px !important; background-color: black; color: white; border-radius: 12px"
                                         required>
                                 </div>
-                                <div class="col-md-12 mb-2">
+                                <div class="col-md-12 mb-2 px-0">
                                     <div class="pb-4 pt-4">
                                         <span class="send-label">Select Reason For Payment</span>
                                     </div>
-                                    <select name="note" id="" style="height: 50px !important; border-radius: 3px "
+                                    <select name="note" id="" style="height: 50px !important; border-radius: 12px "
                                         required>
                                         <option value="" style="background-color:white;">Please select note</option>
                                         <?php $__currentLoopData = $notes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -1817,23 +1834,16 @@ $access_token = '0.0';
                             if (data) {
                                 $('.mains3').show();
                                 $('.mains3').html(data.result);
-                            }
-                            else {
+                            } else {
                                 $('.mains3').show();
                                 $('.searchresultmain').html(data.result);
                             }
                         }
                     });
-                }
-                else {
+                } else {
                     $('.mains3').hide();
-
                 }
-
-
             });
-
-
 
             $(document).on('keypress', '#users', function () {
                 var user_name = $(this).val();
@@ -1850,21 +1860,49 @@ $access_token = '0.0';
                             if (data) {
                                 $('.mains3').show();
                                 $('.mains3').html(data.result);
-                            }
-                            else {
+                            } else {
                                 $('.mains3').show();
                                 $('.searchresultmain').html(data.result);
                             }
                         }
                     });
-                }
-                else {
+                } else {
                     $('.mains3').hide();
-
                 }
-
-
             });
+            var number = 1;
+            $(document).on('click', '#users', function () {
+                var user_name = ''
+                if (number % 2 == 1) {
+                    user_name = 'all';  
+                }
+                number += 1;                  
+                console.log(number);
+                if (user_name != '') {
+                    $.ajax({
+                        url: "get/users",
+                        type: "GET",
+                        //cache: false,
+                        data: {
+                            user_name: user_name,
+                        },
+                        success: function (data) {
+                            if (data) {
+                                $('.mains3').show();
+                                $('.mains3').html(data.result);
+                            } else {
+                                $('.mains3').show();
+                                $('.searchresultmain').html(data.result);
+                            }
+                        }
+                    });
+                } else {
+                    $('.mains3').hide();
+                }
+            });
+            // $(document).on('click', '#users', function() {
+            //     $('.mains3').toggle();
+            // })
 
             //onclick search main
             $(document).on('click', '.searchresultmain', function () {

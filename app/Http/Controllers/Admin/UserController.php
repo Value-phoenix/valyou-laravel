@@ -203,20 +203,34 @@ class UserController extends Controller
     		else{
         		foreach($users as $u){
             	$result.= '<div class="container-fluid p-0 searchresultmain"  data-id=" '.$u->id.' ">
-                			<span  class ="cancel_main" style="display:none;">X</span>
-               
+                			<span  class ="cancel_main" style="display:none;">X</span>               
                 			<div class="col-sm-2 searimg">  <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="'.asset($u->avatar).'">
                 			</div>
             				<div class="col-sm-8 searcon">
                 	<p style="font-weight:bold;">'.$u->first_name.' ' . $u->last_name.' </p>
                 	<p style="color:grey;"> '.$u->email.' </p>
-
             	</div> </div>';
             	}
-        	}
-        
-        }
-    	else{
+        	}        
+        }else if ($request->user_name == 'all') {
+            $users = User::where('id', '!=', auth()->user()->id)->orderBy('first_name')->get();
+            if ($users->isEmpty()) {
+                $result = 'No result found';
+            } else {
+                foreach ($users as $u) {
+                    $result .= '<div class="container-fluid p-0 searchresultmain"  data-id="' . $u->id . '">
+                                <span  class="cancel_main" style="display:none;">X</span>
+                                <div class="col-sm-2 searimg">  
+                                    <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="' . asset($u->avatar) . '">
+                                </div>
+                                <div class="col-sm-8 searcon">
+                                    <p style="font-weight:bold;">' . $u->first_name . ' ' . $u->last_name . '</p>
+                                    <p style="color:grey;">' . $u->email . '</p>
+                                </div> 
+                            </div>';
+                }
+            }
+        }else{
         	$users  = User::where('email','like','%'.$request->user_name.'%')
         	->orWhere('first_name', 'like', '%' . $request->user_name . '%')
         	->orWhere('last_name', 'like', '%' . $request->user_name . '%')->get();
@@ -237,14 +251,11 @@ class UserController extends Controller
 
                 </div> </div>';
             	}
-        	}
-        
-        }
-    	
-    	
-    	return response()->json(['result'=>$result]);
-    	
+        	}        
+        }    	
+    	return response()->json(['result'=>$result]);    	
     }
+    
 	public function updateUserProfile(Request $request){
     
     	if($request->id!=null){

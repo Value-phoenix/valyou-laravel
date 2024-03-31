@@ -823,7 +823,7 @@ $users_data = User::all();
                     <!-- mobile -->
                     <div class="d-flex d-lg-none dropdown show des" style="width: 20LH">
 
-<div class="des-searrch show dropdown-menu dropdown-menu-right align-left dropnewstuff" ">
+<div class="des-searrch show dropdown-menu dropdown-menu-right align-left dropnewstuff">
     <!-- <p class=" m-0 py-2"><a href="deposit" class="nav-link">Deposit Balance: $ {{ $wallet
         }} VXD</a></p> -->
     <input type="text" name="investor-list" id="searchinputuser-des" class="searchData form-control"
@@ -834,7 +834,7 @@ $users_data = User::all();
                     <!-- desktop -->
                     <div class="d-none d-lg-flex dropdown show des">
 
-                        <div class="des-searrch show dropdown-menu dropdown-menu-right align-left dropnewstuff" ">
+                        <div class="des-searrch show dropdown-menu dropdown-menu-right align-left dropnewstuff">
                             <!-- <p class=" m-0 py-2"><a href="deposit" class="nav-link">Deposit Balance: $ {{ $wallet
                                 }} VXD</a></p> -->
                             <input type="text" name="investor-list" id="searchinputuser-des" class="searchData form-control"
@@ -1083,38 +1083,35 @@ $users_data = User::all();
 
 
 
-        $(document).on('click', '#searchinputuser-des', function () {
-
-            var data = `<div class="show-target-content-body-des scroll-style cursor-grab" >
-@foreach ($users_data as $user)
-
-<?php 
-$artist_chk = Artist::where('user_id',$user->id)->first();
-if(!empty($artist_chk) && $user->is_admin != 1){
-   $profile_url = url('artist-profile',$artist_chk->id);
-} 
-if($user->is_admin == 1) {
-    $profile_url = url('artist/profile/26');
-} 
-if(empty($artist_chk) && $user->is_admin != 1){
-    $profile_url = url('market'); 
-}
-?>
-
-<a href="<?= $profile_url;?>" style="color:#404040;">
-<div class="show-target-content-body-item" style="font-size: 0.7rem">
-    <div class="target-info-button">
-        <img src="{{asset($user->avatar)}}" alt="" style="width: 32px; height:32px">
-        <div class="target-info-button-detail">
-            <p class="my-auto target-name" style="font-size: 0.8rem"><strong>{{$user->first_name . " " . $user->last_name}}</strong></p>
-            <p class="my-auto target-type">{{$user->email}}</p>
-        </div>																													
-    </div>  
-</div>
-</a>
-@endforeach													
-</div>`;
-           $('.userListing-des').html(data);
+    $(document).on('click', '#searchinputuser-des', function () {
+        var data = `<div class="show-target-content-body-des scroll-style cursor-grab" >
+        @foreach ($users_data as $user)
+        <?php 
+        $artist_chk = Artist::where('user_id',$user->id)->first();
+        if(!empty($artist_chk) && $user->is_admin != 1){
+        $profile_url = url('artist-profile',$artist_chk->id);
+        } 
+        if($user->is_admin == 1) {
+            $profile_url = url('artist/profile/26');
+        } 
+        if(empty($artist_chk) && $user->is_admin != 1){
+            $profile_url = url('market'); 
+        }
+        ?>
+        <a href="<?= $profile_url;?>" style="color:#404040;">
+        <div class="show-target-content-body-item" style="font-size: 0.7rem">
+            <div class="target-info-button">
+                <img src="{{asset($user->avatar)}}" alt="" style="width: 32px; height:32px">
+                <div class="target-info-button-detail">
+                    <p class="my-auto target-name" style="font-size: 0.8rem"><strong>{{$user->first_name . " " . $user->last_name}}</strong></p>
+                    <p class="my-auto target-type">{{$user->email}}</p>
+                </div>																													
+            </div>  
+        </div>
+        </a>
+        @endforeach													
+        </div>`;
+        $('.userListing-des').html(data);
         });
         $(document).on('click', '#searchinputuser-des', function () {
             console.log("I am clicled")
