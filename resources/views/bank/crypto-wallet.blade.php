@@ -80,7 +80,7 @@
     display: none !important;
    }
    .container-fluid {
-    margin-top: -10px !important;
+    margin-top: -8px !important;
    }
 
    .back-page-btn {
@@ -151,7 +151,15 @@
         box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, .3) !important;
         cursor: pointer;
         float: left;
-        padding-bottom: 7px !important;
+        padding-bottom:10px 0 5px 0 !important;
+    }
+    .searchresultmain-token,
+    .activesearchr-token {
+        display: block;
+        box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, .3) !important;
+        cursor: pointer;
+        float: left;
+        padding-bottom:10px 0 5px 0 !important;
     }
 
     .searimg {
@@ -161,6 +169,15 @@
     }
 
     .mains3 {
+        display: block;
+        border: 1px solid #b4b4b4;
+        float: left;
+        height: auto;
+        overflow-x: unset;
+        overflow-y: scroll;
+        background-color: white !important;
+    }
+    .mains3-token {
         display: block;
         border: 1px solid #b4b4b4;
         float: left;
@@ -194,8 +211,11 @@
         box-shadow: 0 0.5px 4px 0 rgba(0, 0, 0, .3) !important;
         display: block;
         float: left;
-
-
+    }
+    .main-token {
+        box-shadow: 0 0.5px 4px 0 rgba(0, 0, 0, .3) !important;
+        display: block;
+        float: left;
     }
 
     span.cancel_main {
@@ -204,7 +224,13 @@
         margin-top: 10px;
         padding-right: 10px;
         font-weight: bold;
-
+    }
+    span.cancel_main-token {
+        display: block;
+        float: right;
+        margin-top: 10px;
+        padding-right: 10px;
+        font-weight: bold;
     }
 
     .tab-select-nav {
@@ -374,6 +400,47 @@
     padding: 0 3px; /* Adjust padding for positioning */
     cursor: pointer;
 }
+.full-window-display {
+  display: block !important;
+  position: fixed;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  z-index: 9999;
+}
+.full-window-display-di {
+  display: block !important;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+.full-window-display-token {
+  display: block !important;
+  position: fixed;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  z-index: 9999;
+}
+.full-window-display-di-token {
+  display: block !important;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+
 
 </style>
 
@@ -466,9 +533,7 @@
                 <a href="#liquidity_account_price" id="nav-liquidity_account" data-toggle="pill" role="tab"
                     aria-controls="all" aria-selected="true"> Liquidity Account </a>
                 <?php }?>
-            </div>
-            
-           
+            </div>         
         </div>
         <div class="col-md-2"></div>
     </div>
@@ -590,20 +655,6 @@ $access_token = '0.0';
                                     <label>Payment method :</label> <br>
                                     <label>Your account will be credited in VXD</label>
                                     <div class="row">
-<!--                                         <div class="col-xl-3 col-sm-4"> -->
-<!--                                             <label class="card-radio-label mb-3">
-                                                <input type="radio" name="pay-method" id="pay-methodoption1"
-                                                       class="card-radio-input">
-
-                                                <div class="card-radio">
-                                                    <i class="fab fa-cc-mastercard font-size-24 text-pink align-middle mr-2"></i>
-                                                    <span>Credit / Debit Card</span>
-                                                </div>
-                                            </label> -->
-<!--                                         </div> -->
-
-
-                                       
 										<div class="col-xl-4 col-sm-4">
                                             <label class="card-radio-label mb-3">
                                                 <input type="radio" name="pay-method" id="buycurrencyoption1"
@@ -636,30 +687,6 @@ $access_token = '0.0';
                                                 </div>
                                             </label>
                                         </div>
-<!--                                         <div class="col-xl-2 col-sm-4">
-                                            <label class="card-radio-label mb-3">
-                                                <input type="radio" name="pay-method" id="buycurrencyoption1"
-                                                       class="card-radio-input">
-                                                <div class="card-radio">
-                                                    <i class="fab fa-bitcoin font-size-24 text-pink align-middle mr-2"></i>
-                                                    <span>Bitcoin</span>
-                                                </div>
-                                            </label>
-                                        </div> -->
-
-<!--                                         <div class="col-xl-2 col-sm-4">
-                                            <label class="card-radio-label mb-3">
-                                                <input type="radio" name="pay-method" id="buycurrencyoption2"
-                                                       class="card-radio-input">
-                                                <div class="card-radio">
-                                                    <i class="fab fa-ethereum font-size-24 text-pink align-middle mr-2"></i>
-                                                    <span>Ethereum</span>
-                                                </div>
-                                            </label>
-                                        </div> -->
-
-                                      
-
                                     </div>
                                 </div>
 
@@ -708,17 +735,7 @@ $access_token = '0.0';
             </div>
         </div>
     </div>
-                <!-- <button class="btn btn-dark exchange" style="width: 100%" onclick="stripePayment()">Deposit / Buy VXD</button> -->
-                <!-- <div class="bank_btns_wrap" style="display: flex; gap: 10%; margin: 4% 1%">
-                    <button class="btn btn-pink send_money">SEND MONEY VXD</button>
-                    <button class="btn btn-green req_money">WITDRAW / SELL VXD</button>
-                    <button class="btn btn-dark-pink exchange" onclick="stripePayment()">DEPOSIT / BUY VXD</button>
-                </div> -->
-                <!-- <div class="bank_btns_wrap">
-            <button class="btn btn-pink send_money">Send Money VXD</button>
-            <button class="btn btn-green req_money">Withdraw / Sell VXD</button>
-            <button class="btn btn-dark-pink exchange" onclick="stripePayment()">Deposit / Buy VXD</button>
-        </div> -->
+                
                 <div id="payment_options" class=" mb-2 p-4 card" style="display:none;font-size: 18px;">
                     <h4 class="wallet-close" style="padding-left: 2%">X</h4>
                     <h4 class="px-0 mb-3">Select Payment Type</h4>
@@ -1166,10 +1183,9 @@ $access_token = '0.0';
                     </div>
                     <br>
                     <div class="background-shadow transaction-btn p-4"
-                        style="text-align: center; font-size: 14px"><span>TRANSACTIONS & EARNING HISTORY<span></div>
-
-
-
+                        style="text-align: center; font-size: 14px">
+                        <span>TRANSACTIONS & EARNING HISTORY<span>
+                    </div>
                     <div class="row mt-5 transactions" style="display: none;">
                         <div class="col-lg-12">
                             <div class="card">
@@ -1529,34 +1545,34 @@ $access_token = '0.0';
                 <div class="col-lg-12">
                     <div class="deposit_box">
                         <form id="depositFormToken">
-                            <div class="row deposit ml-0 mr-0 " style="background-color: black; border-radius: 3px;">
-                                <div class="col-md-12 mb-2 ">
+                            <div class="row deposit ml-0 mr-0" style="background-color: black; border-radius: 3px;">
+                                <div class="col-md-12 mb-2 px-0 input-custom">
                                     <div class="pb-4 pt-4">
                                         <span class="send-label">Send Token To</span>
                                     </div>
 
-                                    <input id="users" autocomplete="off"
-                                        style="height: 50px !important; border-radius: 3px "
+                                    <input id="users-token" autocomplete="off"
+                                        style="height: 50px !important; border-radius: 12px "
                                         placeholder="Who would you like to send money to?">
-                                    <input id="user_id" name="user_id" hidden>
-                                    <div class="mains3 col-sm-12 p-0" style="display:none;">
+                                    <input id="user_id-token" name="user_id-token" hidden>
+                                    <div class="mains3-token col-sm-12 p-0" style="display:none;border-radius: 12px">
                                     </div>
                                 </div>
-                                <div class="col-md-12 mb-2 ">
+                                <div class="col-md-12 mb-2 px-0">
                                     <div class="pb-4 pt-4">
                                         <span class="send-label">Send Amount</span>
                                     </div>
 
                                     <input type="number" id="wallet" name="wallet" step="any" min="0.1"
                                         placeholder="Send Amount"
-                                        style="height: 50px !important; background-color: black; color: white; border-radius: 3px"
+                                        style="height: 50px !important; background-color: black; color: white; border-radius: 12px"
                                         required>
                                 </div>
-                                <div class="col-md-12 mb-2">
+                                <div class="col-md-12 mb-2 px-0">
                                     <div class="pb-4 pt-4">
                                         <span class="send-label">Select Reason For Payment</span>
                                     </div>
-                                    <select name="note" id="" style="height: 50px !important; border-radius: 3px "
+                                    <select name="note" id="" style="height: 50px !important; border-radius: 12px "
                                         required>
                                         <option value="" style="background-color:white;">Please select note</option>
                                         @foreach ($notes as $id => $value)
@@ -1877,7 +1893,8 @@ $access_token = '0.0';
                 if (number % 2 == 1) {
                     user_name = 'all';  
                 }
-                number += 1;                  
+                number += 1;   
+                $('#users').addClass('full-window-display');               
                 console.log(number);
                 if (user_name != '') {
                     $.ajax({
@@ -1890,14 +1907,18 @@ $access_token = '0.0';
                         success: function (data) {
                             if (data) {
                                 $('.mains3').show();
+                                $('.mains3').addClass('full-window-display-di');
                                 $('.mains3').html(data.result);
                             } else {
                                 $('.mains3').show();
+                                $('.mains3').addClass('full-window-display-di');
                                 $('.searchresultmain').html(data.result);
                             }
                         }
                     });
                 } else {
+                    $('#users').removeClass('full-window-display');
+                    $('.mains3').removeClass('full-window-display-di');
                     $('.mains3').hide();
                 }
             });
@@ -1913,8 +1934,9 @@ $access_token = '0.0';
 
                 $(this).siblings().hide();
                 var div = $(this);
-
+                $('#users').removeClass('full-window-display');
                 $('#users').hide();
+                $('.mains3').removeClass('full-window-display-di');
                 $(this).hide();
                 // $('.mains3').addClass('main');
                 // $('.main').removeClass('mains3');
@@ -1932,11 +1954,144 @@ $access_token = '0.0';
                 $(this).parent().removeClass('activesearchr');
                 $(this).parent().addClass('searchresultmain');
                 $('.searchresultmain').show();
+                $('#users').addClass('full-window-display');
                 $('#users').show();
+                $('.mains3').addClass('full-window-display-di');
                 $('.main').addClass('mains3');
                 $('.mains3').removeClass('main');
 
                 $('.cancel_main').hide();
+                //$('#user_ids').removeAttr('style');
+
+            });
+            //send token to
+            $(document).on('keypress', '#users-token', function () {
+                var user_name = 'tokenclick';
+
+                if (user_name != '') {
+                    $.ajax({
+                        url: "get/users",
+                        type: "GET",
+                        //cache: false,
+                        data: {
+                            user_name: user_name,
+                        },
+                        success: function (data) {
+                            if (data) {
+                                $('.mains3-token').show();
+                                $('.mains3-token').html(data.result);
+                            } else {
+                                $('.mains3-token').show();
+                                $('.searchresultmain-token').html(data.result);
+                            }
+                        }
+                    });
+                } else {
+                    $('.mains3-token').hide();
+                }
+            });
+
+            $(document).on('keypress', '#users-token', function () {
+                var user_name = "token". $(this).val();
+
+                if (user_name != '') {
+                    $.ajax({
+                        url: "get/users",
+                        type: "GET",
+                        //cache: false,
+                        data: {
+                            user_name: user_name,
+                        },
+                        success: function (data) {
+                            if (data) {
+                                $('.mains3-token').show();
+                                $('.mains3-token').html(data.result);
+                            } else {
+                                $('.mains3-token').show();
+                                $('.searchresultmain-token').html(data.result);
+                            }
+                        }
+                    });
+                } else {
+                    $('.mains3-token').hide();
+                }
+            });
+            var number_token = 1;
+            $(document).on('click', '#users-token', function () {
+                var user_name = ''
+                if (number_token % 2 == 1) {
+                    user_name = 'tokenall';  
+                }
+                number_token += 1;   
+                $('#users-token').addClass('full-window-display-token');               
+                console.log(number_token);
+                if (user_name != '') {
+                    $.ajax({
+                        url: "get/users",
+                        type: "GET",
+                        //cache: false,
+                        data: {
+                            user_name: user_name,
+                        },
+                        success: function (data) {
+                            if (data) {
+                                $('.mains3-token').show();
+                                $('.mains3-token').addClass('full-window-display-di-token');
+                                $('.mains3-token').html(data.result);
+                            } else {
+                                $('.mains3-token').show();
+                                $('.mains3-token').addClass('full-window-display-di-token');
+                                $('.searchresultmain-token').html(data.result);
+                            }
+                        }
+                    });
+                } else {
+                    $('#users-token').removeClass('full-window-display-token');
+                    $('.mains3-token').removeClass('full-window-display-di-token');
+                    $('.mains3-token').hide();
+                }
+            });
+            // $(document).on('click', '#users', function() {
+            //     $('.mains3').toggle();
+            // })
+
+            //onclick search main
+            $(document).on('click', '.searchresultmain-token', function () {
+                var user_id = $(this).data('id');
+                $('#user_id-token').val(user_id);
+                $('.user_id_get').val(user_id);
+
+                $(this).siblings().hide();
+                var div = $(this);
+                $('#users-token').removeClass('full-window-display-token');
+                $('#users-token').hide();
+                $('.mains3-token').removeClass('full-window-display-di-token');
+                $(this).hide();
+                // $('.mains3').addClass('main');
+                // $('.main').removeClass('mains3');
+                // $('.main').prepend(div);
+                div.removeClass('searchresultmain-token');
+                div.addClass('activesearchr-token');
+                // $('.cancel_main').addClass('cancel_main-token');
+                // $('.cancel_main-token').removeClass('cancel_main');                
+                $('.cancel_main-token').show();
+                div.show();
+                return -1;
+            });
+
+            $(document).on("click", ".cancel_main-token", function () {
+                //$('.users_div').append('<p>hello</p>');
+
+                $(this).parent().removeClass('activesearchr-token');
+                $(this).parent().addClass('searchresultmain-token');
+                $('.searchresultmain-token').show();
+                $('#users-token').addClass('full-window-display-token');
+                $('#users-token').show();
+                $('.mains3-token').addClass('full-window-display-di-token');
+                $('.main-token').addClass('mains3-token');
+                $('.mains3-token').removeClass('main-token');
+
+                $('.cancel_main-token').hide();
                 //$('#user_ids').removeAttr('style');
 
             });

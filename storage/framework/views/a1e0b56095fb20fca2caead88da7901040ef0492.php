@@ -601,7 +601,6 @@ $users_data = User::all();
                         </div>
                     </div>
 
-
                     <div class="dropdown">
                         <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="dropdown"
                             id="totalbalance">

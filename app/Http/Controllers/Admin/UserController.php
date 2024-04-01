@@ -195,63 +195,132 @@ class UserController extends Controller
 	public function getUsers(Request $request){
  		
     	$result="";
-    	if($request->user_name=='click'){
-        	$users = User::where('id','!=',auth()->user()->id)->orderBy('first_name')->take(10)->get();
-        	if($users->isEmpty()){
-        	$result = 'No result found';
-        	}
-    		else{
-        		foreach($users as $u){
-            	$result.= '<div class="container-fluid p-0 searchresultmain"  data-id=" '.$u->id.' ">
-                			<span  class ="cancel_main" style="display:none;">X</span>               
-                			<div class="col-sm-2 searimg">  <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="'.asset($u->avatar).'">
-                			</div>
-            				<div class="col-sm-8 searcon">
-                	<p style="font-weight:bold;">'.$u->first_name.' ' . $u->last_name.' </p>
-                	<p style="color:grey;"> '.$u->email.' </p>
-            	</div> </div>';
-            	}
-        	}        
-        }else if ($request->user_name == 'all') {
-            $users = User::where('id', '!=', auth()->user()->id)->orderBy('first_name')->get();
-            if ($users->isEmpty()) {
+        $teststring = substr($request->user_name,0,5);
+        function removeString($inputString, $teststring) {
+            $outputString = str_replace($teststring, '', $inputString);
+            return $outputString;
+        }
+        $inputString = $request->user_name;
+        $getuserlist = removeString($inputString, $teststring);
+        if($teststring != 'token'){
+            if($request->user_name=='click'){
+                $users = User::where('id','!=',auth()->user()->id)->orderBy('first_name')->take(10)->get();
+                if($users->isEmpty()){
                 $result = 'No result found';
-            } else {
-                foreach ($users as $u) {
-                    $result .= '<div class="container-fluid p-0 searchresultmain"  data-id="' . $u->id . '">
-                                <span  class="cancel_main" style="display:none;">X</span>
-                                <div class="col-sm-2 searimg">  
-                                    <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="' . asset($u->avatar) . '">
+                }
+                else{
+                    foreach($users as $u){
+                    $result.= '<div class="container-fluid p-0 searchresultmain"  data-id=" '.$u->id.' ">
+                                <span  class ="cancel_main" style="display:none;">X</span><span  class="cancel_main-token" style="display:none;">X</span>               
+                                <div class="col-sm-2 searimg">  <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="'.asset($u->avatar).'">
                                 </div>
                                 <div class="col-sm-8 searcon">
-                                    <p style="font-weight:bold;">' . $u->first_name . ' ' . $u->last_name . '</p>
-                                    <p style="color:grey;">' . $u->email . '</p>
-                                </div> 
-                            </div>';
+                        <p style="font-weight:bold;">'.$u->first_name.' ' . $u->last_name.' </p>
+                        <p style="color:grey;"> '.$u->email.' </p>
+                    </div> </div>';
+                    }
+                }        
+            }else if ($request->user_name == 'all') {
+                $users = User::where('id', '!=', auth()->user()->id)->orderBy('first_name')->get();
+                if ($users->isEmpty()) {
+                    $result = 'No result found';
+                } else {
+                    foreach ($users as $u) {
+                        $result .= '<div class="container-fluid p-0 searchresultmain"  data-id="' . $u->id . '">
+                                    <span  class="cancel_main" style="display:none;">X</span><span  class="cancel_main-token" style="display:none;">X</span>
+                                    <div class="col-sm-2 searimg">  
+                                        <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="' . asset($u->avatar) . '">
+                                    </div>
+                                    <div class="col-sm-8 searcon">
+                                        <p style="font-weight:bold;">' . $u->first_name . ' ' . $u->last_name . '</p>
+                                        <p style="color:grey;">' . $u->email . '</p>
+                                    </div> 
+                                </div>';
+                    }
                 }
+            }else{
+                $users  = User::where('email','like','%'.$request->user_name.'%')
+                ->orWhere('first_name', 'like', '%' . $request->user_name . '%')
+                ->orWhere('last_name', 'like', '%' . $request->user_name . '%')->get();
+                $users = $users->where('id','!=',auth()->user()->id);
+                if($users->isEmpty()){
+                    $result = 'No result found';
+                }
+                else{
+                    foreach($users as $u){
+                        $result.= '<div class="container-fluid p-0 searchresultmain"  data-id=" '.$u->id.' ">
+                                <span  class ="cancel_main" style="display:none;">X</span>
+
+                                <div class="col-sm-2 searimg">  <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="'.asset($u->avatar).'">
+                                </div>
+                                <div class="col-sm-8 searcon">
+                        <p style="font-weight:bold;">'.$u->first_name.' ' . $u->last_name.' </p>
+                        <p style="color:grey;"> '.$u->email.' </p>
+
+                    </div> </div>';
+                    }
+                }        
             }
         }else{
-        	$users  = User::where('email','like','%'.$request->user_name.'%')
-        	->orWhere('first_name', 'like', '%' . $request->user_name . '%')
-        	->orWhere('last_name', 'like', '%' . $request->user_name . '%')->get();
-        	$users = $users->where('id','!=',auth()->user()->id);
-        	if($users->isEmpty()){
-            	$result = 'No result found';
-        	}
-        	else{
-            	foreach($users as $u){
-                	$result.= '<div class="container-fluid p-0 searchresultmain"  data-id=" '.$u->id.' ">
-                            <span  class ="cancel_main" style="display:none;">X</span>
+            if($request->user_name=='tokenclick'){
+                $users = User::where('id','!=',auth()->user()->id)->orderBy('first_name')->take(10)->get();
+                if($users->isEmpty()){
+                $result = 'No result found';
+                }
+                else{
+                    foreach($users as $u){
+                    $result.= '<div class="container-fluid p-0 searchresultmain-token"  data-id=" '.$u->id.' ">
+                                <span  class ="cancel_main-token" style="display:none;">X</span>               
+                                <div class="col-sm-2 searimg">  <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="'.asset($u->avatar).'">
+                                </div>
+                                <div class="col-sm-8 searcon">
+                                    <p style="font-weight:bold;">'.$u->first_name.' ' . $u->last_name.' </p>
+                                    <p style="color:grey;"> '.$u->email.' </p>
+                                </div> 
+                            </div>';
+                    }
+                }        
+            }else if ($request->user_name == 'tokenall') {
+                $users = User::where('id', '!=', auth()->user()->id)->orderBy('first_name')->get();
+                if ($users->isEmpty()) {
+                    $result = 'No result found';
+                } else {
+                    foreach ($users as $u) {
+                        $result .= '<div class="container-fluid p-0 searchresultmain-token"  data-id="' . $u->id . '">
+                                    <span  class="cancel_main-token" style="display:none;">X</span>
+                                    <div class="col-sm-2 searimg">  
+                                        <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="' . asset($u->avatar) . '">
+                                    </div>
+                                    <div class="col-sm-8 searcon">
+                                        <p style="font-weight:bold;">' . $u->first_name . ' ' . $u->last_name . '</p>
+                                        <p style="color:grey;">' . $u->email . '</p>
+                                    </div> 
+                                </div>';
+                    }
+                }
+            }else{
+                $users  = User::where('email','like','%'.$getuserlist.'%')
+                ->orWhere('first_name', 'like', '%' . $getuserlist . '%')
+                ->orWhere('last_name', 'like', '%' . $getuserlist . '%')->get();
+                $users = $users->where('id','!=',auth()->user()->id);
+                if($users->isEmpty()){
+                    $result = 'No result found';
+                }
+                else{
+                    foreach($users as $u){
+                        $result.= '<div class="container-fluid p-0 searchresultmain-token"  data-id=" '.$u->id.' ">
+                                <span  class ="cancel_main-token" style="display:none;">X</span>
 
-                            <div class="col-sm-2 searimg">  <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="'.asset($u->avatar).'">
-                            </div>
-                            <div class="col-sm-8 searcon">
-                    <p style="font-weight:bold;">'.$u->first_name.' ' . $u->last_name.' </p>
-                    <p style="color:grey;"> '.$u->email.' </p>
+                                <div class="col-sm-2 searimg">  <img class="rounded-circle header-profile-user user-avatar-obj-fit-cover" src="'.asset($u->avatar).'">
+                                </div>
+                                <div class="col-sm-8 searcon">
+                        <p style="font-weight:bold;">'.$u->first_name.' ' . $u->last_name.' </p>
+                        <p style="color:grey;"> '.$u->email.' </p>
 
-                </div> </div>';
-            	}
-        	}        
+                    </div> </div>';
+                    }
+                }        
+            }
         }    	
     	return response()->json(['result'=>$result]);    	
     }
