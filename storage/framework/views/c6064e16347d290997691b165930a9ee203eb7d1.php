@@ -263,7 +263,78 @@ use App\Http\Controllers\Admin\RoleController;
     #following-side {
         color: white !important;
     }
-
+    .css-kc8vld {
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        background-color: transparent;
+        outline: 0px;
+        border: 0px;
+        margin: 0px;
+        border-radius: 0px;
+        cursor: pointer;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        text-decoration: none;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.25;
+        letter-spacing: 0.02857em;
+        text-transform: uppercase;
+        max-width: 360px;
+        min-width: 90px;
+        position: relative;
+        min-height: 48px;
+        flex-shrink: 0;
+        padding: 12px 16px;
+        overflow: hidden;
+        white-space: normal;
+        text-align: center;
+        flex-direction: column;
+        font-weight: 700;
+        color: white;
+    }   
+    .css-kc8vld {
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        background-color: transparent;
+        outline: 0px;
+        border: 0px;
+        margin: 0px;
+        border-radius: 0px;
+        cursor: pointer;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        text-decoration: none;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.25;
+        letter-spacing: 0.02857em;
+        text-transform: uppercase;
+        max-width: 360px;
+        min-width: 90px;
+        position: relative;
+        min-height: 48px;
+        flex-shrink: 0;
+        padding: 12px 16px;
+        overflow: hidden;
+        white-space: normal;
+        text-align: center;
+        flex-direction: column;
+        font-weight: 700;
+        color: white;
+    }
     /* @media (max-width: 992px) {
    .vertical-menu {
       display: none;
@@ -311,10 +382,10 @@ use App\Http\Controllers\Admin\RoleController;
 
                                         <a class="active " id="nav-home-tab following-side" data-toggle="tab"
                                             href="#nav-home" role="tab" aria-controls="nav-home"
-                                            aria-selected="true">Following You</a>
+                                            aria-selected="true" style="margin-right: 30px;padding: 0 30px 10px 15px;">Following You</a>
                                         <a class="following-side" id="nav-profile-tab following-side" data-toggle="tab"
                                             href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                            aria-selected="false">You Are
+                                            aria-selected="false" style="margin-left:30px; padding: 0 15px 10px 30px;">You Are
                                             Following</a>
                                     </div>
                                     <!-- <span class="MuiTabs-indicator css-118dy7j"
@@ -349,11 +420,11 @@ use App\Http\Controllers\Admin\RoleController;
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('artist_access')): ?>
-                <li class="menu-title">Artist Dashboard</li>
+                
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect mr-1">
-                        <img class="mr-1" width="25" src="<?php echo e(asset('assets/images/valyoux/artist_icon.svg')); ?>">
-                        <span>Artist</span>
+                        <img class="mr-1" width="25" src="<?php echo e(asset('assets/images/valyoux/artist_icon.svg')); ?>" style="position: relative;top:10px;">
+                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Artist</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         
@@ -383,6 +454,7 @@ use App\Http\Controllers\Admin\RoleController;
                         <li><a href="<?php echo e(url('artist/artist/edit/'.$artists['id'])); ?>">Profile Settings</a></li>
                     </ul>
                 </li>
+                <hr style="margin-bottom: 0;margin-top:0;">
                 <?php endif; ?>
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('music_fan_access')): ?>
                 <!-- <li class="menu-title">Music Fan Dashboard</li> -->
@@ -390,7 +462,7 @@ use App\Http\Controllers\Admin\RoleController;
                     <a href="investor" class="has-arrow waves-effect mb-3 mt-2" >
                         <img class="mr-1" width="25"
                             src="<?php echo e(asset('assets/images/valyoux/musicfan_investor_icon.svg')); ?>">
-                        <span>Investor</span>
+                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Investor</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="investor/followings">Following</a></li>
@@ -429,8 +501,8 @@ use App\Http\Controllers\Admin\RoleController;
                 <!-- <li class="menu-title">General Menu</li> -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <img class="mr-1" width="25" src="<?php echo e(asset('assets/images/valyoux/stockmarket_icon.svg')); ?>">
-                        <span>Stock Market</span>
+                        <img class="mr-1" width="25" src="<?php echo e(asset('assets/images/valyoux/stockmarket_icon.svg')); ?>" style="position: relative;top:10px;">
+                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Stock Market</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="<?php echo e(url('market')); ?>">All - Music Artists</a></li>
@@ -444,8 +516,8 @@ use App\Http\Controllers\Admin\RoleController;
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-bitcoin"></i>
-                        <span>Bank</span>
+                        <i class="bx bx-bitcoin" style="position: relative;top:10px;"></i>
+                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Bank</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="<?php echo e(url('account-balance')); ?>">Account Balance</a></li>
@@ -473,7 +545,7 @@ use App\Http\Controllers\Admin\RoleController;
                     <a href="<?php echo e(route('admin.social-media')); ?>">
                         <img class="mr-9 fix-sidebar-icon" width="16"
                             src="<?php echo e(asset('assets/images/valyoux/social_media_valyoux_new.svg')); ?>">
-                        <span>Social Media Trading</span>
+                        <span style="font-weight:500;font-size:16px;">Social Media</span>
                     </a>
                 </li>
                 <li class="mb-3">
@@ -485,36 +557,43 @@ use App\Http\Controllers\Admin\RoleController;
                     <a href="<?php echo e(route('admin.watch')); ?>">
                         <img class="mr-9 fix-sidebar-icon" width="16"
                             src="<?php echo e(asset('assets/images/valyoux/eye.svg')); ?>">
-                        <span>Watch & Earn</span>
+                        <span style="font-weight:500;font-size:16px;">Watch & Earn</span>
                     </a>
                 </li>
                 <li class="mb-3">
                     <a href="listenandearn">
                         <i class="bx bx-news"></i>
-                        <span>Listen & Earn</span>
+                        <span style="font-weight:500;font-size:16px;">Listen & Earn</span>
                     </a>
                 </li>
-                <hr>
+                <hr style="margin-bottom: 0;margin-top:0;">
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-store"></i>
-                        <span>Store</span>
+                        <i class="bx bx-store" style="position: relative;top:10px;"></i>
+                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Store</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="products"><?php echo app('translator')->get('translation.Products'); ?></a></li>
                     </ul>
                 </li>
-                <hr>
-                <li>
+                <hr style="margin-bottom: 0;margin-top:0;">
+                <li class="mb-2">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-user-circle"></i>
-                        <span><?php echo app('translator')->get('translation.Authentication'); ?></span>
+                        <i class="bx bx-user-circle" style="position: relative;top:10px;"></i>
+                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Accounts</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="crypto-kyc-application">ID Verification</a></li>
-                        <li><a href="auth-login">2 Factor Authentication</a></li>
+                    <ul class="sub-menu" aria-expanded="false"  style="font-weight:500;font-size:16px;" style="font-weight:500;font-size:16px;" style="font-weight:500;font-size:16px;" style="font-weight:500;font-size:16px;" style="font-weight:500;font-size:16px;">
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('artist_create')): ?>
+                        <li><a href="artist/artist/create"> Create Artist</a></li>
+                        <li><a href="my-artists" style="font-weight:500;font-size:16px;">My Artists</a></li>
+                        <?php endif; ?>
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('business_create')): ?>
+                        <li><a href="<?php echo e(route('business.business.create')); ?>">Create Business</a></li>
+                        <li><a href="business-profile" style="font-weight:500;font-size:16px;">My Business</a></li>
+                        <?php endif; ?>
                     </ul>
                 </li>
+               
                 <li class="mb-3">
                     <a href="javascript: void(0);">
                         <svg width="16" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="user-headset"
@@ -525,30 +604,24 @@ use App\Http\Controllers\Admin\RoleController;
                                 class=""></path>
                         </svg>
                         
-                        <span class="ml-10">Support</span>
+                        <span class="ml-10" style="font-weight:500;font-size:16px;">Support</span>
                     </a>
                 </li>
                 <li class="mb-2">
                     <a href="crypto-ico-landing">
                         <i class="bx bx-home-alt"></i>
-                        <span>Home</span>
+                        <span style="font-weight:500;font-size:16px;">Home</span>
                     </a>
                 </li>
 
-                <li class="mb-2">
+                <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="fas fa-user"></i>
-                        <span>Accounts</span>
+                        <i class="fas fa-user"  style="position: relative;top:10px;"></i>
+                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;"><?php echo app('translator')->get('translation.Authentication'); ?></span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('artist_create')): ?>
-                        <li><a href="artist/artist/create"> Create Artist</a></li>
-                        <li><a href="my-artists">My Artists</a></li>
-                        <?php endif; ?>
-                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('business_create')): ?>
-                        <li><a href="<?php echo e(route('business.business.create')); ?>">Create Business</a></li>
-                        <li><a href="business-profile">My Business</a></li>
-                        <?php endif; ?>
+                        <li><a href="crypto-kyc-application">ID Verification</a></li>
+                        <li><a href="auth-login">2 Factor Authentication</a></li>
                     </ul>
                 </li>
 
