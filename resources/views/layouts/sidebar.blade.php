@@ -382,10 +382,10 @@ use App\Http\Controllers\Admin\RoleController;
 
                                         <a class="active " id="nav-home-tab following-side" data-toggle="tab"
                                             href="#nav-home" role="tab" aria-controls="nav-home"
-                                            aria-selected="true" style="margin-right: 30px;padding: 0 30px 10px 15px;">Following You</a>
+                                            aria-selected="true" style="margin-right: 9%;">Following You</a>
                                         <a class="following-side" id="nav-profile-tab following-side" data-toggle="tab"
                                             href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                            aria-selected="false" style="margin-left:30px; padding: 0 15px 10px 30px;">You Are
+                                            aria-selected="false" style="margin-left:9%;">You Are
                                             Following</a>
                                     </div>
                                     <!-- <span class="MuiTabs-indicator css-118dy7j"
@@ -423,8 +423,8 @@ use App\Http\Controllers\Admin\RoleController;
                 {{-- <li class="menu-title">Artist Dashboard</li> --}}
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect mr-1">
-                        <img class="mr-1" width="25" src="{{ asset('assets/images/valyoux/artist_icon.svg') }}" style="position: relative;top:10px;">
-                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Artist</span>
+                        <img class="mr-1" width="25" src="{{ asset('assets/images/valyoux/artist_icon.svg') }}" style="padding-top:0.75rem;padding-bottom:0.75rem;">
+                        <span style="font-weight:500;font-size:16px;padding-top:0.75rem;padding-bottom:0.75rem;">Artist</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         {{-- <li><a href="investment-deal">Investment Deal</a></li> --}}
@@ -501,8 +501,8 @@ use App\Http\Controllers\Admin\RoleController;
                 <!-- <li class="menu-title">General Menu</li> -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <img class="mr-1" width="25" src="{{ asset('assets/images/valyoux/stockmarket_icon.svg') }}" style="position: relative;top:10px;">
-                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Stock Market</span>
+                        <img class="mr-1" width="25" src="{{ asset('assets/images/valyoux/stockmarket_icon.svg') }}" style="padding-top:0.75rem;padding-bottom:0.75rem;">
+                        <span style="font-weight:500;font-size:16px;padding-top:0.75rem;padding-bottom:0.75rem;">Stock Market</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ url('market') }}">All - Music Artists</a></li>
@@ -516,8 +516,8 @@ use App\Http\Controllers\Admin\RoleController;
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-bitcoin" style="position: relative;top:10px;"></i>
-                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Bank</span>
+                        <i class="bx bx-bitcoin" style="padding-top:0.75rem;padding-bottom:0.75rem;"></i>
+                        <span style="font-weight:500;font-size:16px;padding-top:0.75rem;padding-bottom:0.75rem;">Bank</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ url('account-balance') }}">Account Balance</a></li>
@@ -569,8 +569,8 @@ use App\Http\Controllers\Admin\RoleController;
                 <hr style="margin-bottom: 0;margin-top:0;">
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-store" style="position: relative;top:10px;"></i>
-                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Store</span>
+                        <i class="bx bx-store" style="padding-top:0.75rem;padding-bottom:0.75rem;"></i>
+                        <span style="font-weight:500;font-size:16px;padding-top:0.75rem;padding-bottom:0.75rem;">Store</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="products">@lang('translation.Products')</a></li>
@@ -579,8 +579,8 @@ use App\Http\Controllers\Admin\RoleController;
                 <hr style="margin-bottom: 0;margin-top:0;">
                 <li class="mb-2">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-user-circle" style="position: relative;top:10px;"></i>
-                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">Accounts</span>
+                        <i class="bx bx-user-circle" style="padding-top:0.75rem;padding-bottom:0.75rem;"></i>
+                        <span style="font-weight:500;font-size:16px;padding-top:0.75rem;padding-bottom:0.75rem;">Accounts</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false"  style="font-weight:500;font-size:16px;" style="font-weight:500;font-size:16px;" style="font-weight:500;font-size:16px;" style="font-weight:500;font-size:16px;" style="font-weight:500;font-size:16px;">
                         @can('artist_create')
@@ -616,8 +616,8 @@ use App\Http\Controllers\Admin\RoleController;
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="fas fa-user"  style="position: relative;top:10px;"></i>
-                        <span style="font-weight:500;font-size:16px;position: relative;top:10px;">@lang('translation.Authentication')</span>
+                        <i class="fas fa-user"  style="padding-top:0.75rem;padding-bottom:0.75rem;"></i>
+                        <span style="font-weight:500;font-size:16px;position: padding-top:0.75rem;padding-bottom:0.75rem;">@lang('translation.Authentication')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="crypto-kyc-application">ID Verification</a></li>
@@ -805,3 +805,6 @@ use App\Http\Controllers\Admin\RoleController;
 </div>
 <!-- Left Sidebar End -->
 <form id="logoutform" action="{{ route('logout') }}" style="display: none" method="POST">@csrf</form>
+<script>
+
+</script>
